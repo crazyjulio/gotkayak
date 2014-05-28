@@ -1,0 +1,138 @@
+.clearfix
+.col_right
+  /
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+    new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 4,
+    interval: 6000,
+    width: 290,
+    height: 300,
+    theme: {
+    shell: {
+    background: '#333',
+    color: '#FFF'
+    },
+    tweets: {
+    background: '#A5CFF7',
+    color: '#000',
+    links: '##369'
+    }
+    },
+    features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+    }
+    }).render().setUser('gotkayak').start();
+    </script>
+  .events
+    - @events.each do |event|
+      %b= event.name
+      %br
+      = event.body
+      %br
+      %br
+.col_left
+  #adv1.usual
+    %ul.idTabs
+      %li
+        %a.selected{:href => "#t1"} News
+      %li
+        %a{:href => "#t2"} Video
+      %li
+        %a{:href => "#t3"} Demos
+      %li
+        %a{:href => "#t4"} Activities
+      %li
+        %a{:href => "#t5"} How to Choose a Kayak
+      %li
+        %a{:href => "#t6"} About
+    #t1
+      - unless @news.nil?
+        - unless @news.image.blank?
+          = image_tag(@news.image.file.medium, :style => "border:0;")
+        %h2= @news.name
+        %br
+        = @news.body
+    #t2
+      Check out this short video that shows off our kayaks features. Then be sure to schedule a demo to try them out for yourself. Don't miss your opportunity to check out the best fishing kayaks on the market.
+      %br/
+      %br/
+      %object{:height => "265", :width => "320"}
+        %param{:name => "movie", :value => "http://www.youtube.com/v/FjinjRe30SU&hl=en&fs=1&color1=0x2b405b&color2=0x6b8ab6&border=1"}
+        %param{:name => "allowFullScreen", :value => "true"}
+        %param{:name => "allowscriptaccess", :value => "always"}
+        %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "265", :src => "http://www.youtube.com/v/FjinjRe30SU&hl=en&fs=1&color1=0x2b405b&color2=0x6b8ab6&border=1", :type => "application/x-shockwave-flash", :width => "320"}
+    #t3
+      %img{:alt => "Demos", :src => "images/malibu4.jpg", :title => "Come demo with us."}>/
+      What makes Old Dominion Kayaks different from a big box store? The personal attention and devotion to making sure you get the kayak that's best for you. When you're in a sporting goods store looking at kayaks, how do you know which one you'll like or which one fits your physique or interests best? There's only one way to tell, and that's to try the boat out for yourself and get advice from someone who deals only in kayaks and fitting you to the boat that's right for you. Contact us now to set up a demo today!
+    #t4
+      %img{:alt => "Fishing", :src => "images/malibu1.jpg", :title => "Best fishing kayaks on the market"}>/
+      One of the great things about fishing from a Malibu kayak is the super-steady platform. You won't have to worry about tipping over while you're fighting that big one. Also, there's no engine noise so you can sneak up on a favorite fishing spot. In a Malibu kayak, you can go where motor boats can't go, and get the fish noone else is getting.
+      %br
+      %br
+      %img{:alt => "Diving/Snorkeling", :src => "images/malibu5.jpg", :title => "Stable platform makes a Malibu kayak the perfect diving and snorkeling boat."}>/
+      Easy on and off. The perfect snorkeling/diving/playing platform for you or your dogs. With it's steady platform, you don't have to worry that you won't be able to get back into your kayak without tipping it over and flooding it.
+    #t5
+      = render :partial => 'how_to_buy'
+    #t6
+      Mine is a home based business.
+      %br
+      I have a business license. I collect and pay retail taxes like any other business.
+      %br
+      I do things by appointment. I do have a day job.
+      %br
+      I'm listed on the dealer page of both Malibu and Cobra.
+      %br
+      I carry boats, seats, paddles, PFD's and boat carts as well as a few other "get started" kind of things.
+      %br
+      I take Visa, Mastercard and cash. No checks.
+      %br
+      %br
+      The quality of your experience is directly proportional to the quality of your equipment!
+      %br
+      %br
+      Tom Lyles
+      %br
+      Old Dominion Kayaks
+      %br
+      Richmond, VA
+      %br
+      C 804-833-7220
+  :javascript
+    $("#adv1 ul").idTabs(function(id,list,set){
+      $("a",set).removeClass("selected")
+      .filter("[@href='"+id+"']",set).addClass("selected");
+      for(i in list)
+        $(list[i]).hide();
+      $(id).fadeIn();
+      return false;
+    });
+.clearfix
+.partners
+  %h2 Partners
+  %ul
+    %li
+      %a{:href => "http://www.malibukayaks.com/"} Malibu
+    %li
+      %a{:href => "http://www.codpaddlesports.com/"} Crack of Dawn PaddleSports
+    %li
+      %a{:href => "http://www.seattlesportsco.com/"} Seattle Sports
+    %li
+      %a{:href => "http://www.yakattack.us/"} Yak Attack
+    %li
+      %a{:href => "http://www.cascadecreek.com/"} Yak Grips
+    %li
+      %a{:href => "http://www.c-tug.com/"} C-Tug
+    %li
+      %a{:href => "http://www.stickitanchorpins.com/"} Stick It Anchor Pins
+    %li
+      %a{:href => "http://ruthlessfishing.com/index.php"} Ruthless Fishing
+.clearfix

@@ -1,0 +1,43 @@
+%h1 Listing versions
+= paginate @versions
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Description
+      %th{:scope => "col"} Product
+      %th{:scope => "col"} Price
+      %th{:scope => "col"} Manufacturer
+      %th{:scope => "col"} Base?
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @versions.each_with_index do |version,i|
+    - if i.odd?
+      %tr.odd
+        %td= version.name
+        %td= snippet(version.description)
+        %td= version.product.name
+        %td= number_to_currency(version.price)
+        %td= version.manufacturer.name
+        %td= version.base_version
+        %td= link_to 'Show', version
+        %td= link_to 'Edit', edit_version_path(version)
+        %td= link_to 'Destroy', version, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= version.name
+        %td= snippet(version.description)
+        %td= version.product.name
+        %td= number_to_currency(version.price)
+        %td= version.manufacturer.name
+        %td= version.base_version
+        %td= link_to 'Show', version
+        %td= link_to 'Edit', edit_version_path(version)
+        %td= link_to 'Destroy', version, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @versions
+%br
+
+= link_to 'New Version', new_version_path

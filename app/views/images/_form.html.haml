@@ -1,0 +1,48 @@
+%b Notes on how to use the "Tag" field:
+%br
+%p
+  %b Product
+  A product can have multiple images, so if you want to define a main image for the product page, select "main" for
+  the tag. If there's no particular need to tag an image, leave it on 'no tag'.
+  %br
+  %b Trip
+  Any notes for trips?
+%br
+= form_for @image, :html => {:multipart => true} do |f|
+  .field
+    = f.label :tag
+    %br
+    = f.select :tag, ['no tag','main']
+  .field
+    = f.label :model, "Image for:"
+    %br
+    = f.select :model, @models, :prompt => true
+  .field
+    = f.label :model_id
+    %br/
+    - if @records[0].respond_to?(:title)
+      = f.select :model_id, @records.map{|p| [p['title'],p['id']]}
+    -else
+      = f.select :model_id, @records.map{|p| [p['name'],p['id']]}
+  .field
+    = f.label :caption
+    %br
+    Note: Trip caption can be as long as you want. Product caption should be 5-6 words at most.
+    %br
+    = f.text_area :caption
+  - if @image.file?
+    %a.fancybox_images{:href => @image.file, :rel => "group1", :title => @image.caption}
+      %img{:alt => @image.caption, :src => @image.file.thumb}/
+    .field
+      = f.label "Remove Image"
+      = f.check_box :remove_file
+      = f.hidden_field :file, {}
+  - else
+    .field
+    = f.label :file, "Image"
+    %br
+    = f.file_field :file
+    = f.hidden_field :file_cache
+  .actions
+    = f.submit 'Save'
+

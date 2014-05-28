@@ -1,0 +1,28 @@
+%p
+  %b Product:
+  = @clearance_item.product.full_name
+%p
+  %b Product type:
+  = @clearance_item.product_type
+%p
+  %b Color:
+  = @clearance_item.color.name if @clearance_item.color
+%p
+  %b Version:
+  = @clearance_item.version.name if @clearance_item.version
+%p
+  %b Clearance reason:
+  = @clearance_item.clearance_reason
+%p
+  %b Price:
+  = number_to_currency(@clearance_item.price)
+%p
+  %b Year:
+  = @clearance_item.year
+%p
+  %b Quantity:
+  = @clearance_item.quantity
+
+= link_to 'Edit', edit_clearance_item_path(@clearance_item)
+\|
+= link_to 'All clearance items', clearance_items_path

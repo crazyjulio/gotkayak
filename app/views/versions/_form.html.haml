@@ -1,0 +1,46 @@
+= form_for @version do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :description
+    %br/
+    = f.text_area :description, :cols => 40, :rows => 5
+  .field
+    = f.label :price
+    %br/
+    = f.text_field :price, :size => 5
+  %br/
+  .field
+    = f.check_box :base_version
+    = f.label :base_version, "Standard/Base version?"
+  %br/
+  .field
+    = f.label :manufacturer_id
+    %br/
+    = f.select :manufacturer_id, @manufacturers, :prompt => true
+  .field
+    = f.label :product_id
+    %br/
+    = f.select :product_id, Product.find_all_by_manufacturer_id(@version.manufacturer_id).map{|p| [p['name'],p['id']]}
+  .field
+    Available features:
+    %p
+      (Optional features on a given model need to be added to every version the feature is available on.)
+    %div#version_features_div
+      - if @features && @features.length > 0
+        - @features.each do |feature|
+          - checked = @version.features.include?(feature) ? true : false
+          = check_box_tag "version[features][]", feature.id, checked, {:id => "version_features_#{feature.id}"}
+          - if feature.price.nil?
+            = "#{feature.name} (Standard)"
+          - else
+            = "#{feature.name} (#{number_to_currency(feature.price)})"
+          %br
+      - elsif @features
+        Please add some features for this manufacturer.
+      - else
+        Please select a manufacturer.
+  .actions
+    = f.submit 'Save'

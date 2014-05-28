@@ -1,0 +1,65 @@
+%h1 #{@product.manufacturer.name} #{@product.name}
+%p
+  %b Length:
+  = number_to_feet @product.length unless @product.length.blank?
+%p
+  %b Width:
+  - unless @product.width.blank?
+    #{@product.width}"
+%p
+  %b Height:
+  - unless @product.height.blank?
+    #{@product.height}"
+%p
+  %b Weight:
+  = number_to_pounds @product.weight unless @product.weight.blank?
+%p
+  %b Capacity:
+  = number_to_pounds @product.capacity unless @product.capacity.blank?
+%p
+  %b Product Type:
+  = @product.product_type
+%br
+%p
+  %b Versions:
+  - if @product.versions.length > 0
+    %br
+    - @product.versions.each do |version|
+      = link_to version.name, :controller => :versions, :action => :show, :id => version.id
+      %br
+    %br
+    = link_to "Add another product version", new_version_path(:product_id => @product.id, :manufacturer_id => @product.manufacturer_id)
+  - else
+    %br
+    = link_to "Add Product version!", new_version_path(:product_id => @product.id, :manufacturer_id => @product.manufacturer_id), :style => "color:red"
+%br
+  %b Colors:
+  %br
+  - @product.colors.each do |color|
+    = color.name
+    %br
+%p
+  %b Description:
+  = @product.description
+%br
+- if @product.images.empty?
+  %p
+    = link_to "Add an image!", new_image_path(:model => 'Product', :model_id => @product.id), :style => "color:red"
+- else
+  %p
+    %b Images:
+    %br
+    - @product.images.each_with_index do |image,i|
+      - if (i+1) % 10 == 0
+        = link_to image_tag(image.file.thumb), image_path(image.id) if image && image.file && image.file.thumb
+        %br
+      - else
+        = link_to image_tag(image.file.thumb), image_path(image.id) if image && image.file && image.file.thumb
+  %p
+    = link_to "Add another image", new_image_path(:model => 'Product', :model_id => @product.id)
+    \|
+    = link_to "Add a version", new_version_path(:product_id => @product.id, :manufacturer_id => @product.manufacturer_id)
+%br
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'All products', products_path

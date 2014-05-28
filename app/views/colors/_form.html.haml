@@ -1,0 +1,24 @@
+= form_for @color do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :description, "Hex value"
+    %br
+    = f.text_field :description, :size => 6
+    :javascript
+      $('#color_description').ColorPicker({
+      	onSubmit: function(hsb, hex, rgb, el) {
+      		$(el).val(hex);
+      		$(el).ColorPickerHide();
+      	},
+      	onBeforeShow: function () {
+      		$(this).ColorPickerSetColor(this.value);
+      	}
+      })
+      .bind('keyup', function(){
+      	$(this).ColorPickerSetColor(this.value);
+      });
+  .actions
+    = f.submit 'Save'

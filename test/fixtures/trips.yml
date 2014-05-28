@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Putin to takeout
+  waterbody_id: 1
+  description: It was awesome
+  start_date: <%= Date.today %>
+  end_date: <%= Date.today + 1 %>
+  paddler_kayak:
+    paddler: [1,2]
+    kayak: [2,1]
+
+two:
+  id: 2
+  name: Round trip
+  waterbody_id: 1
+  description: Started at the putin and did a loop and took out.
+  start_date: <%= Date.today %>
+  end_date: <%= Date.today %>

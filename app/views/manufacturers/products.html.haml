@@ -1,0 +1,59 @@
+%h1 #{@manufacturer.name} Products
+%br
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Manufacturer
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Length
+      %th{:scope => "col"} Width
+      %th{:scope => "col"} Height
+      %th{:scope => "col"} Weight
+      %th{:scope => "col"} Type
+      %th{:scope => "col"} Description
+      %th{:scope => "col"} Image?
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @manufacturer.products.each_with_index do |product,i|
+    - if i.odd?
+      %tr.odd
+        %td= product.manufacturer.name
+        %td= product.name
+        %td= product.length
+        %td= product.width
+        %td= product.height
+        %td= product.weight
+        %td= product.product_type
+        %td= snippet(product.description)
+        - if product.images.length > 0
+          %td.happy YES
+        - else
+          %td.sad NO
+        %td= link_to 'Show', product
+        %td= link_to 'Edit', edit_product_path(product)
+        %td= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= product.manufacturer.name
+        %td= product.name
+        %td= product.length
+        %td= product.width
+        %td= product.height
+        %td= product.weight
+        %td= product.product_type
+        %td= snippet(product.description)
+        - if product.images.length > 0
+          %td.happy YES
+        - else
+          %td.sad NO
+        %td= link_to 'Show', product
+        %td= link_to 'Edit', edit_product_path(product)
+        %td= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+%br
+
+= link_to 'New Product', :controller => :products, :action => :new, :manufacturer_id => @manufacturer.id
+\|
+= link_to "Go to #{@manufacturer.name}", :controller => :manufacturers, :action => :show, :id => @manufacturer.id

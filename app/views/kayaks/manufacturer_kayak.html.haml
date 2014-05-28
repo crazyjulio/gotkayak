@@ -1,0 +1,109 @@
+- content_for :head do
+  / slides
+  %script{:src => "/javascripts/slides.min.jquery.js", :type => "text/javascript"}
+  / jquery ui
+  %script{:src => "/javascripts/jquery-ui-1.8.18.custom.min.js", :type => "text/javascript"}
+= link_to "<-- Back to #{@kayak.manufacturer.name}", :action => :manufacturers_kayaks, :manufacturer => @kayak.manufacturer.name
+%h1 #{@kayak.manufacturer.name} #{@kayak.name}
+%p
+  = @kayak.description
+
+%b Starting at #{number_to_currency @kayak.base_version[0].price}
+.clearfix
+.product_tabs
+  %div#tabs
+    %ul
+      %li
+        %a{:href => "#tabs-1"}
+          Features
+      %li
+        %a{:href => "#tabs-2"}
+          Versions
+      %li
+        %a{:href => "#tabs-3"}
+          Specs
+      %li
+        %a{:href => "#tabs-4"}
+          Colors
+    %div#tabs-1
+      - if @kayak.standard_features.blank?
+        No features
+      - else
+        %h3 Standard
+        - @kayak.standard_features.each do |feature|
+          = feature
+          %br
+      - unless @kayak.optional_features.blank?
+        %h3 Options
+        - @kayak.optional_features.each do |feature|
+          %b= feature[0]
+          = feature[1]
+          = number_to_currency feature[2]
+          %br
+    %div#tabs-2
+      - unless @kayak.versions.length == 0
+        - @kayak.versions.each_with_index do |version,i|
+          %b #{i+1}
+          %b= version.name
+          = version.description
+          %b= number_to_currency(version.price)
+          %br
+      - else
+        Standard
+
+    %div#tabs-3
+      Width: #{@kayak.width}"
+      %br
+      Length: #{number_to_feet @kayak.length}
+      - unless @kayak.height.blank?
+        %br
+        Height: #{@kayak.height}"
+      %br
+      Weight: #{number_to_pounds @kayak.weight}
+      %br
+      Capacity: #{number_to_pounds @kayak.capacity}
+    %div#tabs-4
+      - @colors.each do |color|
+        %div.color_box{:style => "background-color: ##{color.description}; float:left;"}
+        &nbsp;
+        = color.name
+        .clearfix
+
+
+%div#slides_super_container
+  %div#slides_products
+    %div#products
+      .slides_container
+        - @kayak.images.each do |image|
+          .slide
+            %img{:src => image.file.medium, :width => '350'}
+            - unless image.caption.blank?
+              .caption
+                = image.caption
+      %ul.pagination
+        - @kayak.images.each do |image|
+          %li
+            %a{:href => "#"}
+              %img{:src => image.file.mini_thumb, :width => '55'}
+.clearfix
+
+:javascript
+  $(function(){
+      $('#products').slides({
+          preload: true,
+          preloadImage: '/images/slider/loading.gif',
+          effect: 'slide, fade',
+          crossfade: true,
+          slideSpeed: 350,
+          fadeSpeed: 500,
+          generatePagination: false
+      });
+  });
+
+:javascript
+  $(function() {
+      $("#tabs").tabs({
+          event: "mouseover"
+      });
+  });
+

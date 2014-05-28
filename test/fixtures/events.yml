@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Real Big Deal
+  body: We did some thing, and it was awesome. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+  tag: Event
+
+two:
+  id: 2
+  name: New kayaks
+  body: We have some new kayaks, check em out. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+  tag: News
+
+three:
+  id: 3
+  name: More new kayaks
+  body: We have even more new kayaks, check em out. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+  tag: News
+
+four:
+  id: 4
+  name: Went a paddling
+  body: On the James, it was awesome. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+  tag: Event
+
+five:
+  id: 5
+  name: Demo day
+  body: We're going to be demoing boats. Come along. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+  tag: Event

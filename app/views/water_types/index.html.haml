@@ -1,0 +1,28 @@
+%h1 Listing Types of Bodies of Water
+= paginate @water_types
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @water_types.each_with_index do |water_type,i|
+    - if i.odd?
+      %tr.odd
+        %td= water_type.name
+        %td= link_to 'Show', water_type
+        %td= link_to 'Edit', edit_water_type_path(water_type)
+        %td= link_to 'Destroy', water_type, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= water_type.name
+        %td= link_to 'Show', water_type
+        %td= link_to 'Edit', edit_water_type_path(water_type)
+        %td= link_to 'Destroy', water_type, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @water_types
+%br
+
+= link_to 'New Water type', new_water_type_path

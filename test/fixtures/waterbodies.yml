@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  country: Canada
+  state: Yukon Territory
+  name: Yukon River
+  water_type: river
+  description: Really neat
+
+two:
+  id: 2
+  country: USA
+  state: Virginia
+  name: South Anna River
+  water_type: river
+  description: Super neat

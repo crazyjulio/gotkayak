@@ -1,0 +1,58 @@
+%h1 Listing Clearance Items
+= paginate @clearance_items
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Product
+      %th{:scope => "col"} Color
+      %th{:scope => "col"} Version
+      %th{:scope => "col"} Clearance reason
+      %th{:scope => "col"} Price
+      %th{:scope => "col"} Year
+      %th{:scope => "col"} Quantity
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @clearance_items.each_with_index do |clearance_item,i|
+    - if i.odd?
+      %tr.odd
+        %td= clearance_item.product.name
+        - if clearance_item.color
+          %td= clearance_item.color.name
+        - else
+          %td
+        - if clearance_item.version
+          %td= clearance_item.version.name
+        - else
+          %td
+        %td= clearance_item.clearance_reason
+        %td= number_to_currency(clearance_item.price)
+        %td= clearance_item.year
+        %td= clearance_item.quantity
+        %td= link_to 'Show', clearance_item
+        %td= link_to 'Edit', edit_clearance_item_path(clearance_item)
+        %td= link_to 'Destroy', clearance_item, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= clearance_item.product.name
+        - if clearance_item.color
+          %td= clearance_item.color.name
+        - else
+          %td
+        - if clearance_item.version
+          %td= clearance_item.version.name
+        - else
+          %td
+        %td= clearance_item.clearance_reason
+        %td= number_to_currency(clearance_item.price)
+        %td= clearance_item.year
+        %td= clearance_item.quantity
+        %td= link_to 'Show', clearance_item
+        %td= link_to 'Edit', edit_clearance_item_path(clearance_item)
+        %td= link_to 'Destroy', clearance_item, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @clearance_items
+%br
+
+= link_to 'New Clearance item', new_clearance_item_path

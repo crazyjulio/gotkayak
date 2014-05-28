@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Red
+  description: Umm, it's red
+  manufacturer_id: 1
+
+two:
+  id: 2
+  name: Blue
+  description: A really sweet blue
+  manufacturer_id: 1

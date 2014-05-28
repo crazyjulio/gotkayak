@@ -1,0 +1,109 @@
+%h1 Clearance Items
+%br
+- if @closeout_items.empty? && @blem_items.empty?
+  Sorry. There are currently no items on clearance. Please check back later.
+- unless @closeout_items.empty?
+  %h2 Closeout items
+  %table.itunes_table
+    %thead
+      %tr
+        %th{:scope => "col"} Product
+        %th{:scope => "col"} Product Type
+        %th{:scope => "col"} Color
+        %th{:scope => "col"} Version
+        %th{:scope => "col"} Price
+        %th{:scope => "col"} Year
+        %th{:scope => "col"} Quantity
+
+    - @closeout_items.each_with_index do |clearance_item,i|
+      - if i.odd?
+        %tr.odd
+          - if clearance_item.product_type == 'kayak'
+            %th=link_to "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}", :controller => :kayaks, :action => :manufacturer_kayak, :manufacturer => clearance_item.product.manufacturer.name, :kayak => clearance_item.product.name
+          - else
+            %th= "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}"
+          %td= clearance_item.product_type
+          - if clearance_item.color
+            %td= clearance_item.color.name
+          - else
+            %td
+          - if clearance_item.version
+            %td= clearance_item.version.name
+          - else
+            %td
+          %td= number_to_currency(clearance_item.price)
+          %td= clearance_item.year
+          %td= clearance_item.quantity
+      - else
+        %tr
+          - if clearance_item.product_type == 'kayak'
+            %th=link_to "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}", :controller => :kayaks, :action => :manufacturer_kayak, :manufacturer => clearance_item.product.manufacturer.name, :kayak => clearance_item.product.name
+          - else
+            %th= "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}"
+          %td= clearance_item.product_type
+          - if clearance_item.color
+            %td= clearance_item.color.name
+          - else
+            %td
+          - if clearance_item.version
+            %td= clearance_item.version.name
+          - else
+            %td
+          %td= number_to_currency(clearance_item.price)
+          %td= clearance_item.year
+          %td= clearance_item.quantity
+  %br
+  %div.clearboth
+  %br
+- unless @blem_items.empty?
+  %h2 Blemished items
+  %table.itunes_table
+    %thead
+      %tr
+        %th{:scope => "col"} Product
+        %th{:scope => "col"} Product Type
+        %th{:scope => "col"} Color
+        %th{:scope => "col"} Version
+        %th{:scope => "col"} Price
+        %th{:scope => "col"} Year
+        %th{:scope => "col"} Quantity
+
+    - @blem_items.each_with_index do |clearance_item,i|
+      - if i.odd?
+        %tr.odd
+          - if clearance_item.product_type == 'kayak'
+            %th=link_to "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}", :controller => :kayaks, :action => :manufacturer_kayak, :manufacturer => clearance_item.product.manufacturer.name, :kayak => clearance_item.product.name
+          - else
+            %th= "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}"
+          %td= clearance_item.product_type
+          - if clearance_item.color
+            %td= clearance_item.color.name
+          - else
+            %td
+          - if clearance_item.version
+            %td= clearance_item.version.name
+          - else
+            %td
+          %td= number_to_currency(clearance_item.price)
+          %td= clearance_item.year
+          %td= clearance_item.quantity
+      - else
+        %tr
+          - if clearance_item.product_type == 'kayak'
+            %th=link_to "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}", :controller => :kayaks, :action => :manufacturer_kayak, :manufacturer => clearance_item.product.manufacturer.name, :kayak => clearance_item.product.name
+          - else
+            %th= "#{clearance_item.product.manufacturer.name} #{clearance_item.product.name}"
+          %td= clearance_item.product_type
+          - if clearance_item.color
+            %td= clearance_item.color.name
+          - else
+            %td
+          - if clearance_item.version
+            %td= clearance_item.version.name
+          - else
+            %td
+          %td= number_to_currency(clearance_item.price)
+          %td= clearance_item.year
+          %td= clearance_item.quantity
+  %br
+  %div.clearboth

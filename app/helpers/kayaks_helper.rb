@@ -1,0 +1,2 @@
+module KayaksHelper
+end

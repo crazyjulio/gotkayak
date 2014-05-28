@@ -1,0 +1,2 @@
+module ClearanceItemsHelper
+end

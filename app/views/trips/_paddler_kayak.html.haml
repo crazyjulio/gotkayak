@@ -1,0 +1,4 @@
+%p.fields
+  = select_tag "paddler_kayak[paddler][]", options_from_collection_for_select(@paddlers, "id", "name"), :prompt => "Select Paddler"
+  = select_tag "paddler_kayak[kayak][]", options_from_collection_for_select(@kayaks, "id", "full_name"), :prompt => "Select Kayak"
+  = link_to_function "remove", "remove_fields(this)"

@@ -1,0 +1,31 @@
+%h1 Listing questions
+= paginate @questions
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Question
+      %th{:scope => "col"} Answer
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @questions.each_with_index do |question,i|
+    - if i.odd?
+      %tr.odd
+        %td= snippet(question.question)
+        %td= snippet(question.answer)
+        %td= link_to 'Show', question
+        %td= link_to 'Edit', edit_question_path(question)
+        %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= snippet(question.question)
+        %td= snippet(question.answer)
+        %td= link_to 'Show', question
+        %td= link_to 'Edit', edit_question_path(question)
+        %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @questions
+%br
+
+= link_to 'New Question', new_question_path

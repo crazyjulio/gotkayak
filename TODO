@@ -1,0 +1,63 @@
+TODO, in no particular order
+
+Things to do for V1.1 and beyond:
+
+1.  Need to figure out some way to validate so that only one version of a product can be the base version. Need to have
+something that updates a base_version_id field in the product record when a base version is selected for a product. That
+way I can get the base version with 2 queries instead of 3.
+
+2. Cobra has some boats that are multiple colors, lime/yellow, orange/yellow. Need to figure out how to store/display this.
+
+3. Maybe for the trips main picture, I could use a google map with marked launch and takeout spots.
+
+4. On trip images, drop the caption area to below the image, not over the bottom bit
+
+5. On trips, add "next trip" and "previous trip" links
+
+6. Need to work up some way of having height adjust for the #products .slides_container for when images don't fill up the
+whole 350 px box.
+
+7. See about adding something like this so dad can edit static stuff: https://github.com/browsermedia/browsercms
+
+8. Add something that will parse links out of text, and display them as links. Maybe a format like such: ahref{link here || text here}
+
+9. Provide a way to change contact info.
+
+10. Have some sort of little 'edit' icon show up next to things dad can edit, if he's logged in. Maybe try to set up best_in_place
+gem for this. Railscast episode 302
+
+11. Figure out some way of editing the paddlers and the kayaks they took on a trip. Right now I have that as being uneditable. I think I
+might be able to fix this by seeing if there are paddler_kayak values, and if so, then set up the fields in the form.
+
+12. Find a better place for the partners, and make it so Dad can edit them. Maybe just have it so adding/removing manufacturers
+will add them to the partners list. Each partner name should be a link that takes user to a products page that shows all
+the products we carry by that manufacturer
+
+13. Get rid of Show link on admin/index pages and anywhere else I have those tables, (such as manufacturers/products) and make
+the name of the product/event/image/etc. be a link to the show page.
+
+14. Set up a destroy button in admin/index pages and also on the show pages.
+
+15. Want to see if I can design a graphic where the twitter bird is paddling a kayak. For wherever I put the
+ "Follow us on Twitter" bit
+
+16. Add display pages for accessories. Right now there are only display pages for kayaks
+
+17. Create custom 404, 422 and 500 pages. Maybe 422 can be a picture ok a kayak locked up. 500 can be a sinking kayak. 404
+can be a kayak on open water with noone in it, with link back to home page.
+
+18. Set up all assets in the asset pipeline.
+
+19. Might be really nice to have a filter on the various admin index pages, such that I could pick "Products" from a dropdown
+on the Images index page and only see product images.
+
+20. Update gems/rails
+
+21. Figure out why running rake tasks is causing segfaults.
+
+MAYBE I'll do these things:
+
+1. Add a little bio field to Paddler model
+
+2. Add simple_form gem and play around with it. Not necessary, just some optional fun.
+

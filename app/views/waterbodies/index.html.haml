@@ -1,0 +1,37 @@
+%h1 Listing Bodies of Water
+= paginate @waterbodies
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Country
+      %th{:scope => "col"} State
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Water type
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @waterbodies.each_with_index do |waterbody,i|
+    - if i.odd?
+      %tr.odd
+        %td= waterbody.country
+        %td= waterbody.state
+        %td= waterbody.name
+        %td= waterbody.water_type.capitalize if waterbody.water_type
+        %td= link_to 'Show', waterbody
+        %td= link_to 'Edit', edit_waterbody_path(waterbody)
+        %td= link_to 'Destroy', waterbody, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= waterbody.country
+        %td= waterbody.state
+        %td= waterbody.name
+        %td= waterbody.water_type.capitalize if waterbody.water_type
+        %td= link_to 'Show', waterbody
+        %td= link_to 'Edit', edit_waterbody_path(waterbody)
+        %td= link_to 'Destroy', waterbody, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @waterbodies
+%br
+
+= link_to "New Body O' Water", new_waterbody_path

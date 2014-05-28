@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Fish and Dive
+  description: For fishing, and diving
+  product_id: 1
+  price: 1099.99
+  manufacturer_id: 1
+
+two:
+  id: 2
+  name: Recreation
+  description: Just for recreation
+  product_id: 2
+  price: 999.99
+  manufacturer_id: 1
+
+bad_price:
+  id: 3
+  name: Spycraft
+  description: For stealth mode
+  product_id: 2
+  price: "not a price"
+  manufacturer_id: 1

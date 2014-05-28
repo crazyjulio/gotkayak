@@ -1,0 +1,47 @@
+%script{:type => "text/javascript"}
+  //I'm doing a nasty little hack right here to get the right image for a manufacturer. I'll need to fix this at
+  // some point, but to do it correctly right now will take more time than I currently have.
+.center_text
+  - if @mfr.name == 'Malibu Kayaks'
+    %img{:src => '/images/manufacturers/malibu_kayaks.jpg', :title => "Malibu Kayaks", :alt => "Malibu Kayaks"}
+  - elsif @mfr.name == 'Cobra Kayaks'
+    %img{:src => '/images/manufacturers/cobra_kayaks.jpg', :title => "Cobra Kayaks", :alt => "Cobra Kayaks"}
+%br
+%br
+.centered_products_table
+  %table.products_table
+    - until @kayaks.length == 0
+      - kayaks = @kayaks.pop(2).reverse!
+      %tr
+        - kayaks.each do |k|
+          %td
+            .products_detail_thumb.drop_shadow
+              .centered_product_thumb
+                .center_text
+                  %h3= k.name
+                  %hr
+                  - image = k.main_image
+                  - image_url = image[0].file.teaser if !image.blank?
+                  .product_image_div
+                    = link_to(image_tag(image_url), {:action => :manufacturer_kayak, :manufacturer => k.manufacturer.name, :kayak => k.name}) if !image_url.blank?
+                %hr
+                .details_left
+                  %b Weight:
+                  = number_to_pounds k.weight
+                  %br
+                  %b Length:
+                  #{number_to_feet k.length}"
+                  %br
+                  %b Width:
+                  #{k.width}"
+                .details_right
+                  - unless k.height.blank?
+                    %b Height:
+                    #{k.height}"
+                    %br
+                  %b Capacity:
+                  = number_to_pounds k.capacity
+                  %br
+                  %b Base Price:
+                  = number_to_currency k.base_version[0].price if k.base_version && !k.base_version[0].nil?
+

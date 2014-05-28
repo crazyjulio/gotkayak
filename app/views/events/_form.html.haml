@@ -1,0 +1,25 @@
+= form_for @event do |f|
+  = f.hidden_field :tag, :value => @event.tag
+  .field
+    = f.label :name, "Title"
+    %br
+    = f.text_field :name
+  %br
+  MAX characters: #{@event.max_characters}
+  |
+  MIN characters: #{@event.min_characters}
+
+  .field
+    = f.label :body
+    %br
+    = f.text_area :body, :rows => @event.text_area_rows
+    %br
+    <div style="display:inline;">
+    Characters Left:
+    <div id="chars_left" style="display:inline; color:red;">
+    </div>
+    </div>
+    :javascript
+      $('#event_body').limit("#{@event.max_characters}",'#chars_left');
+  .actions
+    = f.submit 'Save'

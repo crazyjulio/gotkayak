@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @water_type.name
+
+= link_to 'Edit', edit_water_type_path(@water_type)
+\|
+= link_to 'All water types', water_types_path

@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp
+.idea
+.DS_Store
+coverage
+public/uploads
+public/images/image
+temp_images/
+.rvmrc
+paypal_test.rb
+test-client/

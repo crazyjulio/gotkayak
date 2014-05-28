@@ -1,0 +1,34 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  manufacturer_id: 1
+  name: X Factor
+  length: 135
+  width: 22
+  height: 21
+  weight: 700
+  description: MyText
+  product_type: kayak
+
+two:
+  id: 2
+  manufacturer_id: 1
+  name: La La La La La
+  length: 140
+  width: 24
+  height: 19
+  weight: 650
+  description: MyText
+  product_type: seat
+
+three:
+  id: 3
+  manufacturer_id: 1
+  name: Pro Explorer
+  length: 125
+  width: 18
+  height: 17
+  weight: 450
+  description: MyText
+  product_type: kayak

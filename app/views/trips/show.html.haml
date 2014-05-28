@@ -1,0 +1,55 @@
+%h1= "#{@trip.waterbody.name} - #{@trip.name}"
+%br
+Nearest Water Gauge ID:
+%a{href: "http://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=#{@trip.nearest_water_gauge}", target: '_blank'}
+  = @trip.nearest_water_gauge
+%br
+Runnable range, in cfs:
+= @trip.runnable_range
+%br
+Trip date(s):
+= @trip.start_date.strftime("%m/%d/%Y")
+- if @trip.end_date?
+  to
+  = @trip.end_date.strftime("%m/%d/%Y")
+- unless @trip.mileage.blank?
+  %br
+  Mileage:
+  = @trip.mileage
+%br/
+Kayaks taken:
+%p
+  - display_paddler_and_kayak(@trip.paddler_kayak).each do |paddler_kayak|
+    %br
+    - if paddler_kayak[1].nil?
+      = "#{paddler_kayak[0].name} - Retired or not for sale kayak"
+    - else
+      = "#{paddler_kayak[0].name} - #{paddler_kayak[1].full_name}"
+%br/
+%p
+
+%p
+  %b Description:
+  = @trip.description
+%br
+%br
+- if @trip.images.empty?
+  %p
+    = link_to "Add an Image", new_image_path(:model => 'Trip', :model_id => @trip.id)
+- else
+  %p
+    %b Images:
+    %br
+    - @trip.images.each_with_index do |image,i|
+      - if (i+1) % 10 == 0
+        = link_to image_tag(image.file.thumb), image_path(image.id)
+        %br
+      - else
+        = link_to image_tag(image.file.thumb), image_path(image.id)
+  %p
+    = link_to "Add an Image", new_image_path(:model => 'Trip', :model_id => @trip.id)
+%br
+- if dadmin_signed_in?
+  = link_to 'Edit', edit_trip_path(@trip)
+  \|
+  = link_to 'All trips', trips_path

@@ -1,0 +1,30 @@
+%h1 Admin Home
+%h3 Update Admin Profile
+%br
+= form_for(@dadmin, :url => update_admin_profile_path, :html => { :method => :put }) do |f|
+  -if @dadmin.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dadmin.errors.count, "error")} prohibited this profile from being updated:"
+      %ul
+        - @dadmin.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :email
+    %br/
+    = f.text_field :email
+  %p= f.submit "Update Email"
+%p
+= form_for(@dadmin, :url => update_admin_profile_path, :html => { :method => :put }) do |f|
+  %p
+    = f.label :current_password
+    %br/
+    = f.password_field :current_password
+  %p
+    = f.label :password, "New password"
+    %br/
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation, "Confirm new password"
+    %br/
+    = f.password_field :password_confirmation
+  %p= f.submit "Update Password"

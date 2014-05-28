@@ -1,0 +1,21 @@
+%p
+  %b Name:
+  = @paddler.name
+%p
+  %b Height:
+  = @paddler.height
+%p
+  %b Weight:
+  = @paddler.weight
+- if @paddler.image.blank?
+  %p
+    = link_to "Add an Image", new_image_path(:model => 'Paddler', :model_id => @paddler.id)
+- else
+  %p
+    %b Image:
+    %br
+    = link_to image_tag(@paddler.image.file.thumb), image_path(@paddler.image.id)
+%br
+= link_to 'Edit', edit_paddler_path(@paddler)
+\|
+= link_to 'All paddlers', paddlers_path

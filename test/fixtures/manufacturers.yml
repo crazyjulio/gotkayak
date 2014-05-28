@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Malibu
+  description: They make Malibu kayaks.
+  notes: Pro Explorer sucks.
+  link: malibukayaks.com
+
+two:
+  id: 2
+  name: Cobra
+  description: They make Cobra kayaks
+  notes: Fish and Dive is cool.
+  link: cobrakayaks.com

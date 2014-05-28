@@ -1,0 +1,43 @@
+= form_for @trip do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :waterbody_id, "Body of water"
+    %br/
+    = f.select :waterbody_id, @waterbodies, :prompt => true
+  .field
+    = f.label :mileage, "Mileage (optional)"
+    %br/
+    = f.text_field :mileage, :size => 3
+  %p
+    Sorry, this is obnoxious, but you're not able to edit who went on the trip and what kayaks they brought once you initially set it up. You can edit other aspects of a trip, but you're stuck with who you select and what kayak they took. If you made a mistake, delete the trip and start over. I plan on fixing this shortly after release.
+  %br
+  %p
+    = add_paddler_kayak_link("Add a paddler", f)
+
+  %br/
+  .field
+    = f.label :description
+    %br/
+    = f.text_area :description
+  .field
+    = f.label :start_date
+    %br/
+    = f.date_select :start_date
+  If was a day trip, leave end date blank. If you play with it, and realize it was just a day trip, make sure you set the values back to blank.
+  .field
+    = f.label :end_date
+    %br/
+    = f.date_select(:end_date, :include_blank => true)
+  .field
+    = f.label :nearest_water_gauge, "Nearest water gauge (For Jason: You can test if a water gauge is usable using the script in the script dir)"
+    %br
+    = f.text_field :nearest_water_gauge, :size => 8
+  .field
+    = f.label :runnable_range, "Runnable Range, in cfs (Ex: 200-3500)"
+    %br
+    = f.text_field :runnable_range, :size => 8
+  .actions
+    = f.submit 'Save'

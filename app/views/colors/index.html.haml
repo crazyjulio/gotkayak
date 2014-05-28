@@ -1,0 +1,34 @@
+%h1 Listing colors
+= paginate @colors
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Hex value
+      %th{:scope => "col"} Swatch
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @colors.each_with_index do |color,i|
+    - if i.odd?
+      %tr.odd
+        %td= color.name
+        %td ##{color.description}
+        %td{:style => "background-color: ##{color.description}"}
+        %td= link_to 'Show', color
+        %td= link_to 'Edit', edit_color_path(color)
+        %td= link_to 'Destroy', color, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= color.name
+        %td ##{color.description}
+        %td{:style => "background-color: ##{color.description}"}
+        %td= link_to 'Show', color
+        %td= link_to 'Edit', edit_color_path(color)
+        %td= link_to 'Destroy', color, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @colors
+%br
+
+= link_to 'New Color', new_color_path

@@ -1,0 +1,35 @@
+= form_for @clearance_item do |f|
+  .field
+    = f.label :product_id
+    %br
+    = f.select :product_id, @products, :prompt => true
+  .field
+    = f.label :product_type
+    %br
+    = f.select :product_type, $product_types.to_a, :prompt => true
+  .field
+    = f.label :color_id
+    %br
+    = f.select :color_id, @colors, :prompt => true, :include_blank => true
+  .field
+    = f.label :version_id
+    %br
+    = f.select :version_id, Version.find_all_by_product_id(@clearance_item.product_id).map{|p| [p['name'],p['id']]}, :prompt => true, :include_blank => true
+  .field
+    = f.label :clearance_reason
+    %br
+    = f.select :clearance_reason, @clearance_reasons, :prompt => true
+  .field
+    = f.label :price
+    %br
+    = f.text_field :price, :size => 6
+  .field
+    = f.label :year
+    %br
+    = f.select :year, @years, :prompt => true, :include_blank => true
+  .field
+    = f.label :quantity
+    %br
+    = f.number_field :quantity, :size => 3
+  .actions
+    = f.submit 'Save'

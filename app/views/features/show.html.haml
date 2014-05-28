@@ -1,0 +1,17 @@
+%p
+  %b Manufacturer:
+  = @feature.manufacturer.name
+%p
+  %b Name:
+  = @feature.name
+%p
+  %b Description:
+  = @feature.description
+%br
+= link_to 'Edit', edit_feature_path(@feature)
+\|
+= link_to 'New feature', new_feature_path
+\|
+= link_to 'All features', features_path
+\|
+= link_to "Go to Manufacturer", :controller => :manufacturers, :action => :show, :id => @feature.manufacturer_id

@@ -1,0 +1,43 @@
+%h1 Listing paddlers
+= paginate @paddlers
+%table.itunes_table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Height
+      %th{:scope => "col"} Weight
+      %th{:scope => "col"} Image?
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+
+  - @paddlers.each_with_index do |paddler,i|
+    - if i.odd?
+      %tr.odd
+        %td= paddler.name
+        %td= paddler.height
+        %td= paddler.weight
+        - if paddler.image.blank?
+          %td.sad NO
+        - else
+          %td.happy YES
+        %td= link_to 'Show', paddler
+        %td= link_to 'Edit', edit_paddler_path(paddler)
+        %td= link_to 'Destroy', paddler, :confirm => 'Are you sure?', :method => :delete
+    - else
+      %tr
+        %td= paddler.name
+        %td= paddler.height
+        %td= paddler.weight
+        - if paddler.image.blank?
+          %td.sad NO
+        - else
+          %td.happy YES
+        %td= link_to 'Show', paddler
+        %td= link_to 'Edit', edit_paddler_path(paddler)
+        %td= link_to 'Destroy', paddler, :confirm => 'Are you sure?', :method => :delete
+.clearboth
+= paginate @paddlers
+%br
+
+= link_to 'New Paddler', new_paddler_path

@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  product_id: 1
+  product_type: kayak
+  color_id: 1
+  version_id: 1
+  clearance_reason: Blemish
+  price: 899.99
+  year: 2010
+  quantity: 2
+
+two:
+  id: 2
+  product_id: 1
+  product_type: kayak
+  color_id: 2
+  version_id: 1
+  clearance_reason: Closeout
+  price: 799.99
+  year: 2009
+  quantity: 1
+
+three:
+  id: 3
+  product_id: 1
+  product_type: kayak
+  color_id: 2
+  version_id: 1
+  clearance_reason: Closeout
+  price: 699.99
+  year: 2008
+  quantity: 13
+
+four:
+  id: 4
+  product_id: 3
+  product_type: kayak
+  color_id: 2
+  version_id: 1
+  clearance_reason: Closeout
+  price: 499.99
+  year: 2008
+  quantity: 43

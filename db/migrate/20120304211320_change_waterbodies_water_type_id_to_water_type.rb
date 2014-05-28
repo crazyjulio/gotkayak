@@ -1,0 +1,11 @@
+class ChangeWaterbodiesWaterTypeIdToWaterType < ActiveRecord::Migration
+  def up
+    remove_column :waterbodies, :water_type_id
+    add_column :waterbodies, :water_type, :string
+  end
+
+  def down
+    add_column :waterbodies, :water_type_id, :integer
+    remove_column :waterbodies, :water_type
+  end
+end
