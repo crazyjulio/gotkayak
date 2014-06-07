@@ -1,16 +1,15 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
 
-ruby "1.9.3"
+ruby "2.0.0"
 
 gem 'httpclient'
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 gem "jquery-rails"
-gem 'devise', '~> 1.5.0'
+gem 'devise'
 gem 'carrierwave', '0.5.8'
 gem 'fog'
 gem 'aws-ses', :require => "aws/ses"
-#gem 'rmagick', '2.13.1'
 gem 'mini_magick'
 gem "haml", '3.1.4'
 gem "haml-rails"
@@ -49,6 +48,6 @@ gem 'exception_notification'
 # end
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem "simplecov", :require => false
+  #gem "simplecov", :require => false
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408014244) do
+ActiveRecord::Schema.define(:version => 20140607020703) do
 
   create_table "clearance_items", :force => true do |t|
     t.integer  "product_id"
@@ -35,16 +35,17 @@ ActiveRecord::Schema.define(:version => 20140408014244) do
   end
 
   create_table "dadmins", :force => true do |t|
-    t.string   "email",                              :default => "", :null => false
-    t.string   "encrypted_password",  :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "dadmins", ["email"], :name => "index_dadmins_on_email", :unique => true
