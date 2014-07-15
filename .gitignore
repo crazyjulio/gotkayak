@@ -11,3 +11,5 @@ temp_images/
 .rvmrc
 paypal_test.rb
 test-client/
+.ruby-version
+.ruby-gemset

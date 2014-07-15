@@ -12,6 +12,10 @@
     %br
     = f.text_field :name
   .field
+    = f.label :description
+    %br
+    = f.text_area :description, cols: 35, rows: 15
+  .field
     = f.label :water_type
     %br
     = f.select :water_type, $waterbodytypes.to_a, :prompt => true
