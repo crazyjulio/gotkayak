@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-ruby "2.0.0"
+ruby "2.1.8"
 
 gem 'httpclient'
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.22.1'
 gem "jquery-rails"
 gem 'devise'
 gem 'carrierwave', '0.5.8'
