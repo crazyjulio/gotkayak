@@ -193,6 +193,8 @@ hr{
 }
 #malibu_logo{
     padding-top: 40px;
+    width: 50%;
+    margin: 0 auto;
 }
 #water_description {
     margin-left: 380px;
