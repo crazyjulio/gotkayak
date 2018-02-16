@@ -6,8 +6,6 @@ Things to do for V1.1 and beyond:
 something that updates a base_version_id field in the product record when a base version is selected for a product. That
 way I can get the base version with 2 queries instead of 3.
 
-2. Cobra has some boats that are multiple colors, lime/yellow, orange/yellow. Need to figure out how to store/display this.
-
 3. Maybe for the trips main picture, I could use a google map with marked launch and takeout spots.
 
 4. On trip images, drop the caption area to below the image, not over the bottom bit
@@ -43,7 +41,7 @@ the name of the product/event/image/etc. be a link to the show page.
 
 16. Add display pages for accessories. Right now there are only display pages for kayaks
 
-17. Create custom 404, 422 and 500 pages. Maybe 422 can be a picture ok a kayak locked up. 500 can be a sinking kayak. 404
+17. Create custom 404, 422 and 500 pages. Maybe 422 can be a picture of a kayak locked up. 500 can be a sinking kayak. 404
 can be a kayak on open water with noone in it, with link back to home page.
 
 18. Set up all assets in the asset pipeline.
@@ -58,6 +56,3 @@ on the Images index page and only see product images.
 MAYBE I'll do these things:
 
 1. Add a little bio field to Paddler model
-
-2. Add simple_form gem and play around with it. Not necessary, just some optional fun.
-

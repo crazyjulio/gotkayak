@@ -67,9 +67,6 @@ Gotkayak::Application.routes.draw do
   get "adventures", :to => "static#adventures"
   get "adventure/:name", :to => "static#adventure"
   get "adventure/:name/:trip_name", :to => "static#adventure"
-  post "paypal_fun", :to => "static#paypal_fun"
-
-
 
   root :to => "static#index"
   # The priority is based upon order of creation:

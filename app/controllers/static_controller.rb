@@ -44,11 +44,6 @@ class StaticController < ApplicationController
     @news = Event.get_news
   end
 
-  def paypal_fun
-    @color = Color.new(:description => params, :name => 'paypal_test', :manufacturer => Manufacturer.find(1))
-    @color.save!
-  end
-
   def faqs
     @faqs = Question.order(:id)
   end
