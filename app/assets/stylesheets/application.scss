@@ -22,7 +22,7 @@ body {
 .jumbotron {
   margin: 0 !important;
   min-height: 485px;
-  background: url('/assets/new/hero_banner.png') no-repeat center bottom scroll;
+  background: image-url('new/hero_banner.png') no-repeat center bottom scroll;
   background-size: 100% cover;
 }
 
@@ -121,7 +121,7 @@ h1, h2, h3 {
 }
 
 .faq-answer {
-  background-image: url('/assets/new/small_kayak.gif');
+  background-image: image-url('new/small_kayak.gif');
   background-repeat: no-repeat;
   padding: 15px 30px 15px 75px;
   background-position: 1% 35%;
