@@ -96,7 +96,7 @@ Rails.application.configure do
 
   Gotkayak::Application.config.middleware.use ExceptionNotification::Rack,
                                               email: {
-                                                sender_address: %("GotKayak Exception" <jason@gotkayak.com>),
+                                                sender_address: %("GotKayak Exception" <lylesjt@gmail.com>),
                                                 exception_recipients: ['lylesjt@gmail.com']
                                               }
 end
