@@ -1,5 +1,3 @@
-require 'fog/aws'
-
 CarrierWave.configure do |config|
   if Rails.env.test?
     config.storage = :file
@@ -8,6 +6,7 @@ CarrierWave.configure do |config|
     config.storage = :file
   else
     config.storage = :fog
+    config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: ENV['S3_KEY'],
