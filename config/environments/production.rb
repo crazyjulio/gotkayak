@@ -90,6 +90,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'gotkayak.com' }
+
+  # Set to use Amazon ses via aws-sdk gem
+  config.action_mailer.delivery_method = :aws_sdk
+
   Gotkayak::Application.config.middleware.use ExceptionNotification::Rack,
                                               email: {
                                                 sender_address: %("GotKayak Exception" <jason@gotkayak.com>),
