@@ -1,6 +1,6 @@
-class CreateKayaksColorsJoinTable < ActiveRecord::Migration
+class CreateKayaksColorsJoinTable < ActiveRecord::Migration[5.1]
   def self.up
-    create_table :kayaks_colors, :id => false do |t|
+    create_table :kayaks_colors, id: false do |t|
       t.integer :kayak_id
       t.integer :color_id
     end

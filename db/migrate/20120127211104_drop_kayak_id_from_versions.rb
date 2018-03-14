@@ -1,4 +1,4 @@
-class DropKayakIdFromVersions < ActiveRecord::Migration
+class DropKayakIdFromVersions < ActiveRecord::Migration[5.1]
   def up
     remove_column :versions, :kayak_id
   end

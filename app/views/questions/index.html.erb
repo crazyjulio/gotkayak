@@ -1,0 +1,27 @@
+<%= render partial: 'shared/section_title', locals: {h1_main: 'FAQs', h1_small: 'Frequently Asked Questions'} %>
+<%= render partial: 'shared/breadcrumbs/section', locals: {current_page: 'FAQs'} %>
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div id="accordion" class="col-md-12">
+        <% @faqs.each_with_index do |faq,i| %>
+          <div class="card card-faqs">
+            <div class="card-header faq-answer" id="heading<%= i %>">
+              <h5 class="mb-0">
+                <button class="btn btn-link <%= i == 0 ? '' : 'collapsed' %>" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="<%= i == 0 ? 'true' : 'false' %>" aria-controls="collapse<%= i %>">
+                  <%= faq.question %>
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapse<%= i %>" class="collapse <%= i == 0 ? 'show' : '' %>" aria-labelledby="heading<%= i %>" data-parent="#accordion">
+              <div class="card-body">
+                <%= faq.answer %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

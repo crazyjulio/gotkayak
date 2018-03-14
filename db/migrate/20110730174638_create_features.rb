@@ -1,4 +1,4 @@
-class CreateFeatures < ActiveRecord::Migration
+class CreateFeatures < ActiveRecord::Migration[5.1]
   def self.up
     create_table :features do |t|
       t.string :name

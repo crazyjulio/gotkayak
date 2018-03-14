@@ -1,4 +1,4 @@
-class AddLinkToManufacturer < ActiveRecord::Migration
+class AddLinkToManufacturer < ActiveRecord::Migration[5.1]
   def up
     add_column :manufacturers, :link, :string
   end

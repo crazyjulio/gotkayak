@@ -1,4 +1,4 @@
-class AddFieldsToTrip < ActiveRecord::Migration
+class AddFieldsToTrip < ActiveRecord::Migration[5.1]
   def change
     add_column :trips, :launch_location, :string
     add_column :trips, :takeout_location, :string

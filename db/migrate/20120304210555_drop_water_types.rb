@@ -1,4 +1,4 @@
-class DropWaterTypes < ActiveRecord::Migration
+class DropWaterTypes < ActiveRecord::Migration[5.1]
   def up
     drop_table :water_types
   end

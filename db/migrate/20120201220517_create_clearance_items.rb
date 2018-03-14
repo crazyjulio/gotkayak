@@ -1,4 +1,4 @@
-class CreateClearanceItems < ActiveRecord::Migration
+class CreateClearanceItems < ActiveRecord::Migration[5.1]
   def change
     create_table :clearance_items do |t|
       t.integer :product_id

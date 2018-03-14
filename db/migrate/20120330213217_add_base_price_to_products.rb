@@ -1,4 +1,4 @@
-class AddBasePriceToProducts < ActiveRecord::Migration
+class AddBasePriceToProducts < ActiveRecord::Migration[5.1]
   def up
     add_column :products, :base_price, :decimal
   end

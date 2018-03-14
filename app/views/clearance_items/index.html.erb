@@ -1,0 +1,24 @@
+<%= render partial: 'shared/section_title', locals: {h1_main: 'Clearance Items', h1_small: 'Great Kayaks - Great Prices'} %>
+<%= render partial: 'shared/breadcrumbs/section', locals: {current_page: 'Clearance Items'} %>
+<section class="content">
+  <div class="container">
+    <% if @closeout_items.empty? && @blem_items.empty? %>
+      Sorry. There are currently no items on clearance. Please check back later.
+    <% end %>
+    <% unless @closeout_items.empty? %>
+      <br/>
+      <h2>Closeout items</h2>
+      <div class="row">
+        <%= render partial: "clearance_items", locals: {clearance_items: @closeout_items} %>
+      </div>
+      <br/>
+    <% end %>
+    <% unless @blem_items.empty? %>
+      <br/>
+      <h2>Blemished items</h2>
+      <div class="row">
+        <%= render partial: "clearance_items", locals: {clearance_items: @blem_items} %>
+      </div>
+    <% end %>
+  </div>
+</section>

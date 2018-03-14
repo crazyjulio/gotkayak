@@ -1,4 +1,4 @@
-class CreateColors < ActiveRecord::Migration
+class CreateColors < ActiveRecord::Migration[5.1]
   def self.up
     create_table :colors do |t|
       t.string :name

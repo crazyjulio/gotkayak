@@ -1,0 +1,12 @@
+<%= render partial: 'shared/section_title', locals: {h1_main: 'Adventures', h1_small: 'Exploring With The Kayaks'} %>
+<%= render partial: 'shared/breadcrumbs/section', locals: {current_page: 'Adventures'} %>
+<section class="content">
+  <div class="container">
+    <p>
+      At Old Dominion Kayaks, we try to get out on the water as much as we can. When we get a chance to, we'll post photos and write-ups about the trips we take. Check out the links below and catch up on all the places we take the kayaks.
+    </p>
+    <div class="row">
+      <%= render partial: 'waterbody', locals: {waterbodies: @waterbodies} %>
+    </div>
+  </div>
+</section>

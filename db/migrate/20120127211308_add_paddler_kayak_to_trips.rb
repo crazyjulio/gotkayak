@@ -1,4 +1,4 @@
-class AddPaddlerKayakToTrips < ActiveRecord::Migration
+class AddPaddlerKayakToTrips < ActiveRecord::Migration[5.1]
   def up
     add_column :trips, :paddler_kayak, :text
   end

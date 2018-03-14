@@ -1,51 +1,49 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-ruby "2.1.8"
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
-gem 'httpclient'
-gem 'rails', '3.2.22.1'
-gem "jquery-rails"
+ruby "2.4.1"
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.1.5'
+# Use Puma as the app server
+gem 'puma', '~> 3.7'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 gem 'devise'
-gem 'carrierwave', '0.5.8'
-gem 'fog'
-gem 'aws-ses', :require => "aws/ses"
+gem 'activeadmin'
+gem 'activeadmin_addons'
+gem 'country_select'
+gem 'carrierwave'
+#gem 'fog'
 gem 'mini_magick'
-gem "haml", '3.1.4'
-gem "haml-rails"
-gem "thin"
-gem "pg"
-gem "kaminari"
-gem "ruby-units"
+gem 'aws-sdk', '~> 2'
+gem 'aws-sdk-rails'
 gem 'exception_notification'
+gem 'pg'
+gem "font-awesome-rails"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
-  #gem "simplecov", :require => false
+  gem 'pry-rails'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end

@@ -1,4 +1,4 @@
-class DropImageName < ActiveRecord::Migration
+class DropImageName < ActiveRecord::Migration[5.1]
   def up
     remove_column :images, :name
   end

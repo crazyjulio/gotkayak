@@ -1,0 +1,12 @@
+<% waterbodies.each do |waterbody| %>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <img class="card-img-top img-fluid" src="<%= waterbody.image %>" alt="<%= waterbody.name %>"/>
+      <div class="card-body card-waterbody">
+        <h4 class="card-title"><%= "#{waterbody.state} - #{waterbody.name}" %></h4>
+        <p class="card-text card-waterbody-text"><%= snippet(waterbody.description, :word_count => 30) %></p>
+        <%= link_to 'Adventure With Us', {controller: 'waterbodies', action: 'show', name: waterbody.name}, {class: 'btn btn-primary', target: '_top'} %>
+      </div>
+    </div>
+  </div>
+<% end %>

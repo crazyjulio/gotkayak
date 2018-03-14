@@ -1,4 +1,4 @@
-class AddFieldsToImage < ActiveRecord::Migration
+class AddFieldsToImage < ActiveRecord::Migration[5.1]
   def up
     add_column :images, :model, :string
     add_column :images, :model_id, :integer

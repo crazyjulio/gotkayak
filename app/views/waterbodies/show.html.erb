@@ -1,0 +1,32 @@
+<%= render partial: 'shared/section_title', locals: {h1_main: 'Adventures', h1_small: @waterbody.name} %>
+<%= render partial: 'shared/breadcrumbs/waterbody', locals: {current_page: @waterbody.name} %>
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% if @waterbody.image %>
+        <img src="<%= @waterbody.image.medium.url %>" title="<%= @waterbody.name %>" class="img-fluid float-left"/>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <%= @waterbody.description %>
+    </div>
+  </div>
+  <br/>
+  <section class="content">
+    <div class="card-columns">
+      <% @trips.each do |trip| %>
+        <div class="card">
+          <img class="card-img-top img-fluid" src="<%= trip.images[0].medium.url if trip.images.present? %>" alt="<%= trip.name %>">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= trip.name %></h5>
+            <p class="card-text"><%= snippet(trip.description, :word_count => 40) %></p>
+            <div class="text-center">
+              <%= link_to 'Read More Now', {:controller => :trips, :action => :show, :name => @waterbody.name, :trip_name => trip.name}, {class: 'btn btn-primary', target: '_top'} %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

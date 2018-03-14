@@ -1,4 +1,4 @@
-class DropPaddlerIdFromTrips < ActiveRecord::Migration
+class DropPaddlerIdFromTrips < ActiveRecord::Migration[5.1]
   def up
     remove_column :trips, :paddler_id
   end

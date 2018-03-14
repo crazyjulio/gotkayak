@@ -1,4 +1,4 @@
-class DropWaterbodyIdFromWaterTypes < ActiveRecord::Migration
+class DropWaterbodyIdFromWaterTypes < ActiveRecord::Migration[5.1]
   def up
     remove_column :water_types, :waterbody_id
   end

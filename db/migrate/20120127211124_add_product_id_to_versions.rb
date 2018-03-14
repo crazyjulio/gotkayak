@@ -1,4 +1,4 @@
-class AddProductIdToVersions < ActiveRecord::Migration
+class AddProductIdToVersions < ActiveRecord::Migration[5.1]
   def up
     add_column :versions, :product_id, :integer
   end

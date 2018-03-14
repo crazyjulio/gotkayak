@@ -3,12 +3,6 @@ DEPLOYING
 As of Feb. 2012, the app is on Heroku's Cedar stack. To deploy to heroku, issue the following command: `git push heroku master`
 To run migrations, `heroku run rake db:migrate --app gotkayak-cedar`, then `heroku restart --app gotkayak-cedar`
 
-DATA
-
-Some data was pre-populated in the app in 2 ways. First through the seeds file. Second through yaml files in config/data
-These were set up due to the fact that they are simple arrays and will rarely, if ever, change, and hence didn't
-need scaffolding. Currently there are config files for product types and waterbody types.
-
 To drop:
 `heroku pg:reset SHARED_DATABASE --confirm gotkayak-cedar --app gotkayak-cedar`
 To recreate:
@@ -16,28 +10,3 @@ To recreate:
 To seed the database:
 `heroku run rake db:seed --app gotkayak-cedar`
 Then restart the app.
-
-
-THIRD PARTY LIBS
-
-Javascript
-
-    Slides
-    site: slidesjs.com
-    usage: kayaks display page for the image gallery
-
-    AD Gallery
-    site: coffeescripter.com/code/ad-gallery
-    usage: Trip pages image gallery
-
-    Fancybox
-    site: fancybox.net
-    usage: in the places where I click on images and a lightbox effect is created.
-
-    Colorpicker
-    site: eyecon.ro/colorpicker
-    usage: in the Colors form, selecting the text field for hex values pops up a color picker
-
-    Jquery UI
-    site: jqueryui.com
-    usage: tabbed section on the kayaks display page.

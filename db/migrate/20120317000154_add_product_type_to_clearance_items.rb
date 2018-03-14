@@ -1,4 +1,4 @@
-class AddProductTypeToClearanceItems < ActiveRecord::Migration
+class AddProductTypeToClearanceItems < ActiveRecord::Migration[5.1]
   def up
     add_column :clearance_items, :product_type, :string
   end

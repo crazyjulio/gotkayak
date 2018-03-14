@@ -1,4 +1,4 @@
-class ChangeProductsFeaturesName < ActiveRecord::Migration
+class ChangeProductsFeaturesName < ActiveRecord::Migration[5.1]
   def up
     rename_table :products_features, :features_products
   end

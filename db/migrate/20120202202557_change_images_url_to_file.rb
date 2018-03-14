@@ -1,4 +1,4 @@
-class ChangeImagesUrlToFile < ActiveRecord::Migration
+class ChangeImagesUrlToFile < ActiveRecord::Migration[5.1]
   def up
     rename_column :images, :url, :file
   end

@@ -1,0 +1,128 @@
+<section class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="wow fadeInLeft">
+          <h1 class="display-4">Fishing Kayaks</h1>
+          <p class="lead">Virginia's only independent Malibu Kayaks dealer, bringing you the best fishing kayaks on the market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content news-and-events">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 pad-bottom-sm">
+        <% unless @news.nil? %>
+          <% unless @news.image.blank? %>
+            <%= image_tag(@news.image.medium, class: "img-fluid float-right") %>
+          <% end %>
+          <h3>
+            <%= @news.name %>
+          </h3>
+          <%= @news.body %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <h3>Events</h3>
+        <div class="events">
+          <% @events.each do |event| %>
+            <h3 class="h3">
+              <%= event.name %>
+            </h3>
+            <%= event.body %>
+            <br>
+            <br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="demos" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 pad-bottom-sm">
+        <h2 class="display-5">Come Demo With Us</h2>
+        <p>
+          What makes Old Dominion Kayaks different from a big box store? The personal attention and devotion to making sure you get the kayak that's best for you. When you're in a sporting goods store looking at kayaks, how do you know which one you'll like or
+          which one fits your physique or interests best? There's only one way to tell, and that's to try the boat out for yourself and get advice from someone who deals only in kayaks and fitting you to the boat that's right for you.
+        </p>
+        <a href="#" class="btn btn-info btn-lg">Schedule A Demo</a>
+      </div>
+      <div class="col-md-5 wow fadeInRight">
+        <%= image_tag('new/demos.png', class: "rounded-circle img-fluid") %>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content text-center">
+  <div class="container">
+    <h2>Malibu Kayaks Are Great For</h2>
+    <br/>
+    <div class="row">
+      <div class="col-md-4 wow fadeIn" data-wow-duration="1.9s" data-wow-delay="0.4s">
+        <%= image_tag('new/demos.png', class: 'rounded-circle img-fluid img-thumbnail') %>
+        <h3>Fishing</h3>
+      </div>
+      <div class="col-md-4 wow fadeIn" data-wow-duration="1.9s" data-wow-delay="0.8s">
+        <%= image_tag('new/demos.png', class: 'rounded-circle img-fluid img-thumbnail') %>
+        <h3>Snorkeling/Diving</h3>
+      </div>
+      <div class="col-md-4 wow fadeIn" data-wow-duration="1.9s" data-wow-delay="1.2s">
+        <%= image_tag('new/play.png', class: 'rounded-circle img-fluid img-thumbnail') %>
+        <h3>Playing</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="partners" class="content text-center">
+  <div id='partners-links' class="container">
+    <h2>Our Partners</h2>
+    <br/>
+    <div class="d-xs-block d-sm-block d-md-none hidden-partner-nav">
+      <a href="http://www.malibukayaks.com/">Malibu Kayaks</a>
+      &middot;
+      <a href="http://www.codpaddlesports.com/" target="_blank">Crack of Dawn PaddleSports</a>
+      &middot;
+      <a href="http://www.seattlesportsco.com/" target="_blank">Seattle Sports</a>
+      &middot;
+      <a href="http://www.yakattack.us/" target="_blank">Yak Attack</a>
+      &middot;
+      <a href="http://www.cascadecreek.com/" target="_blank">Yak Grips</a>
+      &middot;
+      <a href="http://www.c-tug.com/" target="_blank">C-Tug</a>
+      &middot;
+      <a href="http://www.stickitanchorpins.com/" target="_blank">Stick It Anchor Pins</a>
+      &middot;
+      <a href="https://www.ruthlessoutdooradventures.com/" target="_blank">Ruthless Outdoor Adventures</a>
+    </div>
+    <div class="d-none d-md-block">
+      <a href="http://www.malibukayaks.com/" target="_blank">
+        <%= image_tag('new/partners/malibu-kayaks', class: 'partner-logo img-fluid', alt: 'Malibu Kayaks') %>
+      </a>
+      <a href="http://www.codpaddlesports.com/" target="_blank">
+        <%= image_tag('new/partners/crack-of-dawn', class: 'partner-logo img-fluid', alt: 'Crack of Dawn PaddleSports') %>
+      </a>
+      <a href="http://www.seattlesportsco.com/" target="_blank">
+        <%= image_tag('new/partners/seattle-sports', class: 'partner-logo img-fluid', alt: 'Seattle Sports') %>
+      </a>
+      <a href="http://www.yakattack.us/" target="_blank">
+        <%= image_tag('new/partners/yak-attack', class: 'partner-logo img-fluid', alt: 'Yak Attack') %>
+      </a>
+      <a href="http://www.cascadecreek.com/" target="_blank">
+        <%= image_tag('new/partners/cascade-creek', class: 'partner-logo img-fluid', alt: 'Yak Grips') %>
+      </a>
+      <a href="http://www.c-tug.com/" target="_blank">
+        <%= image_tag('new/partners/c-tug', class: 'partner-logo img-fluid', alt: 'C-Tug') %>
+      </a>
+      <a href="http://www.stickitanchorpins.com/" target="_blank">
+        <%= image_tag('new/partners/stickit', class: 'partner-logo img-fluid', alt: 'Stick It Anchor Pins') %>
+      </a>
+      <a href="https://www.ruthlessoutdooradventures.com/" target="_blank">
+        <%= image_tag('new/partners/ruthless', class: 'partner-logo img-fluid', alt: 'Ruthless Outdoor Adventures') %>
+      </a>
+    </div>
+  </div>
+</section>

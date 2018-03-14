@@ -1,4 +1,4 @@
-class ChangeProductsColorsName < ActiveRecord::Migration
+class ChangeProductsColorsName < ActiveRecord::Migration[5.1]
   def up
     rename_table :products_colors, :colors_products
   end

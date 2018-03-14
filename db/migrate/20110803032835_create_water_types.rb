@@ -1,4 +1,4 @@
-class CreateWaterTypes < ActiveRecord::Migration
+class CreateWaterTypes < ActiveRecord::Migration[5.1]
   def self.up
     create_table :water_types do |t|
       t.string :name

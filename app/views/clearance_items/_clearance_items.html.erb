@@ -1,0 +1,29 @@
+<% clearance_items.each do |clearance_item| %>
+  <div class="col-md-6">
+    <div class="card text-center">
+      <img class="card-img-top img-fluid" src="<%= clearance_item.image %>" alt="<%= "#{clearance_item.product} #{clearance_item.version_name}" %>">
+      <div class="card-body">
+        <h4 class="card-title"><%= "#{clearance_item.color} #{clearance_item.year} #{clearance_item.product} #{clearance_item.version_name}" %></h4>
+        <div class="float-right">
+          <p class="card-text">Price:
+            <%= number_to_currency(clearance_item.price) %></p>
+        </div>
+        <div class="float-left">
+          <p class="card-text">In-Stock: x<%= clearance_item.quantity %></p>
+        </div>
+        <div class="clearboth"></div>
+        <br/>
+
+        <small class="text-muted">Hurry! Only
+          <%= clearance_item.quantity %>
+          at this price!</small>
+        <br/>
+        <br/>
+        <a
+          href="mailto:tom@gotkayak.com?Subject=Clearance%20<%= clearance_item.color %>%20<%= clearance_item.year %>%20<%= clearance_item.product %>%20<%= sanitize(clearance_item.version_name) %>%20<%= clearance_item.version_name %>"
+          target="_top"
+          class="btn btn-primary">Take Advantage of a Great Price!</a>
+      </div>
+    </div>
+  </div>
+<% end %>

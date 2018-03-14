@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta content="o2yvyh4-f02towtp0bwa1cku18gbl9-14ytk6u-xa6mp6s-94svxnn5qb75ccn949-7jv-2w6s9766tnor-spe9ddpn6phpy95i3hs90fgkj6z40wfrj6j03wrm3b0mu" name="norton-safeweb-site-verification"/>
+    <meta content="malibu kayak dealers, kayaks virginia, kayaks richmond va, gotkayak, old dominion kayaks, james river kayaking, ocean kayaks virginia, fishing kayaks virginia, malibu kayaks virginia" name="keywords"/>
+    <meta content="Old Dominion Kayaks serves Virginia, providing demos of our kayaks, so you know before you buy." name="description"/>
+    <meta content="GGnZ5igMGveiaarDuV17KPoG6eCdhTi6kFkq+zSUX+o=" name="verify-v1"/>
+    <title>Old Dominion Kayaks - Virginia's Fishing Kayak Source</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+
+    <!-- favicon -->
+    <link href="favicon.ico" rel="SHORTCUT ICON"/>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <%= render :partial => 'shared/navigation' %>
+    <%= yield %>
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">
+          <p>
+            &copy;
+            <%= Date.today.year %>
+            Old Dominion Kayaks - All Rights Reserved |
+            <%= link_to "home", root_path %>
+            &middot;
+            <%= link_to "clearance", clearance_path %>
+            &middot;
+            <%= link_to "kayaks", '#' %>
+            &middot;
+            <%= link_to "faqs", faqs_path %>
+            &middot;
+            <%= link_to "contact", contact_path %>
+            &middot;
+            <%= link_to "warranty", warranty_path %>
+          </p>
+        </span>
+      </div>
+    </footer>
+    <script>
+      new WOW().init();
+    </script>
+    <% if Rails.env.production? %>
+      <script>
+        var gaJsHost = (
+          ("https:" == document.location.protocol)
+            ? "https://ssl."
+            : "http://www."
+        );
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script>
+        var pageTracker = _gat._getTracker("UA-5452816-1");
+        pageTracker._trackPageview();
+      </script>
+    <% end %>
+  </body>
+</html>

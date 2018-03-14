@@ -1,4 +1,4 @@
-class RemoveBasePriceFromProducts < ActiveRecord::Migration
+class RemoveBasePriceFromProducts < ActiveRecord::Migration[5.1]
   def up
     remove_column :products, :base_price
   end

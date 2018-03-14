@@ -1,3 +1,3 @@
-class Question < ActiveRecord::Base
-  validates :question, :answer, :presence => true
+class Question < ApplicationRecord
+  validates :question, :answer, presence: true
 end

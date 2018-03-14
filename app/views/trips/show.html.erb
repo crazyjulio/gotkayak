@@ -1,0 +1,68 @@
+<%= render partial: 'shared/section_title', locals: {h1_main: @waterbody.name, h1_small: @trip.name} %>
+<%= render partial: 'shared/breadcrumbs/trip', locals: {current_page: @trip.name, water: @waterbody} %>
+
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <% unless @trip.images.empty? %>
+        <% @trip.images.each_with_index do |image,index| %>
+          <% if index <= 2 %>
+            <a href="<%= image.url %>" data-toggle="lightbox" data-gallery="trip-images" class="col-md-4">
+              <img src="<%= image.medium.url %>" class="img-fluid trip-image pad-bottom-sm"/>
+            </a>
+          <% else %>
+            <div data-toggle="lightbox" data-gallery="trip-images" data-remote="<%= image.url %>"></div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <p class="text-center">
+      <small class="text-muted">Click on an image to see more</small>
+    </p>
+    <% if @water_gauge_info %>
+      Nearest Water Gauge:
+      <%= @water_gauge_info[:site_name] %>
+      <br/>
+      <br/>
+      <b>
+        Current Conditions:
+      </b>
+      <br/>
+      <%= "#{@water_gauge_info[:var1][0]}: #{@water_gauge_info[:var1][1]}" %>
+      <br/>
+      <%= "#{@water_gauge_info[:var2][0]}: #{@water_gauge_info[:var2][1]}" %>
+      <br/>
+      <% if @trip.runnable_range %>
+        Runnable range (in cfs):
+        <%= @trip.runnable_range %>
+        <br/>
+      <% end %>
+    <% end %>
+    <br/>
+    <% if @trip.end_date? %>
+      Dates:
+      <%= "#{@trip.start_date.strftime("%m/%d/%Y")} to #{@trip.end_date.strftime("%m/%d/%Y")}" %>
+    <% else %>
+      Date:
+      <%= "#{@trip.start_date.strftime("%m/%d/%Y")}" %>
+    <% end %>
+    <br/>
+    <% unless @trip.mileage.blank? %>
+      Trip length:
+      <%= "#{@trip.mileage}" %>
+      miles
+      <br/>
+    <% end %>
+    <br/>
+    <p>
+      <%= @trip.description %>
+    </p>
+  </div>
+</section>
+
+<script>
+  $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox({wrapping: false});
+  });
+</script>
