@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
     }
     config.storage = :fog
     config.fog_directory = 'gotkayak-images'
-    config.fog_host = 'https://s3.amazonaws.com/gotkayak-images'
+    config.asset_host = 'https://s3.amazonaws.com/gotkayak-images'
     config.fog_public = true
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
