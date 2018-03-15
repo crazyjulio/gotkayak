@@ -156,6 +156,10 @@ h1, h2, h3 {
     height: 80px;
   }
 
+  body {
+    padding-bottom: 80px;
+  }
+
   .navbar-nav>li>a {
     border-right: none !important;
   }
@@ -183,6 +187,10 @@ h1, h2, h3 {
 @media(max-width:480px) {
   .footer {
     height: 100px;
+  }
+
+  body {
+    padding-bottom: 100px;
   }
 }
 
