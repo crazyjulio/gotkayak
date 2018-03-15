@@ -11,8 +11,7 @@
     <title>Old Dominion Kayaks - Virginia's Fishing Kayak Source</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
 
-    <!-- favicon -->
-    <link href="favicon.ico" rel="SHORTCUT ICON"/>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
