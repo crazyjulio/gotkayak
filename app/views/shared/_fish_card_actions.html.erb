@@ -1,0 +1,13 @@
+<% unless fish.disputed_by? || fish.user_id == current_user.id %>
+  <%= link_to 'Dispute', '#', {:remote => true, 'data-toggle' => "modal", data: {fish_id: fish.id}, 'data-target' => '#dispute-modal', class: 'btn btn-danger btn-sm'} %>
+  <%= render partial: 'fish/dispute_form' %>
+<% end %>
+<% if fish.disputed_by == current_user.id %>
+  <%= link_to 'Resolve', '#', {:remote => true, 'data-toggle' => "modal", data: {fish_id: fish.id}, 'data-target' => '#resolve-dispute-modal', class: 'btn btn-success btn-sm'} %>
+  <%= render partial: 'fish/resolve_dispute_form' %>
+<% end %>
+<%= link_to 'Comment', '#', {:remote => true, 'data-toggle' => "modal", data: {fish_id: fish.id}, 'data-target' => '#comment-modal', class: 'btn btn-primary btn-sm'} %>
+<%= render partial: 'fish/comment_form' %>
+<% if fish.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_fish_path(fish), class: 'btn btn-primary btn-sm' %>
+<% end %>

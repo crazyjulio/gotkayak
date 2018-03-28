@@ -1,0 +1,33 @@
+<section class="comments float-right">
+  <% fish.comments.each do |comment| %>
+    <div class="mt-2 mb-2">
+      <div class="row">
+        <div class="col-md-2">
+          <% user = commenter(comment['user_id']) %>
+            <div class="ml-2">
+              <img class="img-fluid commenter-image" src='<%= user.image.thumb.url || '/assets/new/skunk.jpg' %>' alt="<%= user.name %>"/>
+            </div>
+            <small class="text-muted"></small>
+          </div>
+          <div class="col-md-10">
+            <div class="card comment-card <%= comment_decorator(comment['type']) %>">
+              <div class="card-header">
+                <strong><%= link_to user.name, other_user_profile_path(user.to_param) %></strong>
+                <%= " commented on #{comment_time_formatter(comment['comment_time'])}" %>
+                <% if comment_belongs_to_current_user?(comment['user_id']) %>
+                  &nbsp;
+                  <%= link_to 'Edit', '#', {:remote => true, 'data-toggle' => "modal", data: {fish_id: fish.id, comment: comment.to_json}, 'data-target' => '#edit-comment-modal'} %>
+                  <%= render partial: 'fish/edit_comment_form' %>
+                <% end %>
+              </div>
+              <div class="card-body  <%= card_decorator(comment['type']) %>">
+                <p class="card-text font-italic">
+                  <%= "#{prefix_comment(comment['type'])} #{comment['comment']}" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </section>

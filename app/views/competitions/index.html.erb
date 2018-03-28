@@ -1,0 +1,7 @@
+<div class="container">
+  <br/>
+  <br/>
+  <% @competitions.each do |competition| %>
+    <%= link_to competition.year, { controller: 'competitions', action: 'show', year: competition.year } %>
+  <% end %>
+</div>

@@ -1,0 +1,38 @@
+<div class="col-md-8">
+  <h4><%= user == current_user ? 'My Fish' : "#{user.name}'s Fish" %></h4>
+  <br/>
+  <ul class="list-group">
+    <% @fish.each do |fish| %>
+      <li class="list-group-item <%= 'list-group-item-danger' if fish.disputed_by? %>">
+        <div class="float-left">
+          <strong>
+            <%= link_to fish.species, fish_path(fish) %>
+          </strong>
+          -
+          <%= fish.catch_date %>
+        </div>
+        <div class="float-right">
+          <% if fish.disputed_by? %>
+            Disputed By:
+            <%= disputed_by(fish.disputed_by) %>
+          <% end %>
+          <% if user == current_user %>
+            <%= link_to 'Edit', edit_fish_path(fish), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="col-md-3 offset-md-1">
+  <h4><%= user == current_user ? 'My Profile' : "#{user.name}'s Profile" %></h4>
+  <br/>
+  <strong>Email:
+  </strong>
+  <%= user.email %>
+  <br/>
+  <strong>Profile Image:
+  </strong>
+  <br/>
+  <img class="img-fluid profile-image" src='<%= user.image || '/assets/new/skunk.jpg' %>'/>
+</div>

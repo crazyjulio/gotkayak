@@ -1,0 +1,41 @@
+<div class="container">
+  <% if @disputes && @disputes.length > 0 %>
+    <%= link_to "Active Disputes <span class='badge badge-light'>#{@disputes.length}</span>".html_safe, disputes_path(Date.today.year), class: 'btn btn-danger' %>
+  <% end %>
+  <div class="row">
+    <div class="col-md-7">
+      <br/>
+      <h4>Latest Fish Reports</h4>
+      <br/>
+      <%= paginate @fish, window: 1 %>
+      <% @fish.each do |fish| %>
+        <%= render partial: 'shared/fish_card', locals: {fish: fish, preview: false} %>
+      <% end %>
+      <br/>
+      <%= paginate @fish, window: 1 %>
+
+      <%= page_entries_info @fish %>
+    </div>
+    <div class="col-md-5">
+      <br/>
+      <h4>Leaderboard</h4>
+      <br/>
+      <div class="leaderboard">
+        <h5>Species Leaders</h5>
+        <%= render partial: 'species_leaders_table', locals: {leaders: @species_leaders} %>
+      </div>
+      <div class="leaderboard">
+        <h5>Weight Leaders</h5>
+        <%= render partial: 'leaders_table', locals: {leaders: @weight_leaders, metric: 'weight'} %>
+      </div>
+      <div class="leaderboard">
+        <h5>Length Leaders</h5>
+        <%= render partial: 'leaders_table', locals: {leaders: @length_leaders, metric: 'length'} %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.carousel').carousel({wrap: false});
+</script>
