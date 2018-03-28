@@ -1,0 +1,10 @@
+<%= "Fish disputed!" %>
+
+============================================
+
+<%= "Hey #{@user.name}, your #{@fish.species} caught on #{@fish.catch_date} has been disputed by #{@disputer}" %>
+
+<%= "#{@disputer} had this to say: #{@comment}" %>
+
+You can resolve the issue, or engage in spirited dialog here:
+<%= @url %>

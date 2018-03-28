@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Place</th>
+      <th scope="col">Name</th>
+      <th scope="col">Fish</th>
+      <th scope="col"><%= metric.capitalize %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% leaders.each_with_index do |leader, i| %>
+      <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= link_to competitor(leader.user_id).name, other_user_profile_path(competitor(leader.user_id).to_param) %></td>
+        <td><%= leader.species %></td>
+        <td>
+          <%= leader.send("display_#{metric}".to_sym) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

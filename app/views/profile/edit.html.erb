@@ -1,0 +1,53 @@
+<div class="container">
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Edit Profile</h2>
+        <% if @user.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger" role="alert">
+            <h2><%= pluralize(@user.errors.count, "error") %>
+              prohibited this profile from being updated:</h2>
+
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form_for(@user, as: :user, url: update_profile_path(@user), html: { method: :put }) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :email %><br/>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
+
+        <%= f.label :image, 'Profile Image' %><br/>
+        <% if @user.image? %>
+          <br/>
+          <div>
+            <%= image_tag @user.image.thumb.url %>
+          </div>
+          <div>
+            <label>
+              <%= f.check_box :remove_image %>
+              Remove image
+            </label>
+          </div>
+        <% else %>
+          <div class="custom-file">
+            <%= f.file_field :image, id: :user_image, class: 'custom-file-input' %>
+            <label class="custom-file-label" for="user_image">Choose Image</label>
+            <%= f.hidden_field :image_cache %>
+          </div>
+        <% end %>
+        <br/>
+        <br/>
+        <div class="actions">
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+</div>

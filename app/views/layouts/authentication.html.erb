@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta content="o2yvyh4-f02towtp0bwa1cku18gbl9-14ytk6u-xa6mp6s-94svxnn5qb75ccn949-7jv-2w6s9766tnor-spe9ddpn6phpy95i3hs90fgkj6z40wfrj6j03wrm3b0mu" name="norton-safeweb-site-verification"/>
+    <meta content="GGnZ5igMGveiaarDuV17KPoG6eCdhTi6kFkq+zSUX+o=" name="verify-v1"/>
+    <title>Fishing Competition -
+      <%= Date.today.year %>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
+    <%= stylesheet_link_tag 'authentication', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <% if user_signed_in? %>
+      <%= button_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% end %>
+    <% if notice %>
+      <div class='alert alert-success'>
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class='alert alert-danger'>
+        <%= alert %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+  </body>
+</html>

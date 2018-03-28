@@ -10,3 +10,7 @@ To recreate:
 To seed the database:
 `heroku run rake db:seed --app gotkayak-cedar`
 Then restart the app.
+
+
+Used this to help with autocomplete dropdown:
+  https://rubyplus.com/articles/3701-Auto-Complete-Association-in-Rails-5

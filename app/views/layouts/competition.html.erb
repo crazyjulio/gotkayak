@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta content="o2yvyh4-f02towtp0bwa1cku18gbl9-14ytk6u-xa6mp6s-94svxnn5qb75ccn949-7jv-2w6s9766tnor-spe9ddpn6phpy95i3hs90fgkj6z40wfrj6j03wrm3b0mu" name="norton-safeweb-site-verification"/>
+    <meta content="GGnZ5igMGveiaarDuV17KPoG6eCdhTi6kFkq+zSUX+o=" name="verify-v1"/>
+    <title>Fishing Competition -
+      <%= Date.today.year %>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
+    <%= stylesheet_link_tag 'competition', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'competition', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <a class="navbar-brand" href="#"><%= image_tag('new/odk_new.png') %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to('Home', "/competition/#{Date.today.year}", class: 'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Report Fish', new_fish_path, class: 'nav-link') %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to 'Profile', '#', {class: 'nav-link dropdown-toggle', id: 'profile_dropdown', 'data-toggle' => 'dropdown'} %>
+            <div class="dropdown-menu" aria-labelledby="profile_dropdown">
+              <%= link_to('View', profile_path, class: 'dropdown-item') %>
+              <%= link_to('Edit', profile_edit_path, class: 'dropdown-item') %>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item">
+            <%= button_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger') %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <% if notice %>
+        <div class='alert alert-success'>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class='alert alert-danger'>
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+    <footer class="footer">
+      <div class="container">
+        <p>You suckers don't stand a chance</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <%= render partial: 'shared/fish_card', locals: {fish: @fish, preview: true} %>
+      <br/>
+      <%= link_to 'Edit', edit_fish_path(@fish) if current_user == @fish.user %>
+    </div>
+  </div>
+</div>

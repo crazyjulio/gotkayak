@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Place</th>
+      <th scope="col">Name</th>
+      <th scope="col">Species Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% leaders.each_with_index do |leader, i| %>
+      <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= link_to competitor(leader[0]).name, other_user_profile_path(competitor(leader[0].to_param)) %></td>
+        <td class="text-center">
+          <span class="badge badge-pill badge-secondary"><%= leader[1] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
