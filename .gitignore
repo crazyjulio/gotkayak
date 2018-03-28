@@ -32,6 +32,8 @@ tmp
 coverage
 public/uploads
 public/images/image
+public/images/fish
+public/images/user
 temp_images/
 .ruby-version
 .ruby-gemset

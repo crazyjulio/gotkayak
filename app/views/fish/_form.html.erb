@@ -1,0 +1,67 @@
+<%= form_with(model: fish, local: true) do |form| %>
+<% if fish.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger" role="alert">
+    <h2><%= pluralize(fish.errors.count, "error") %>
+      prohibited this fish from being saved:</h2>
+
+    <ul>
+      <% fish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :species %>
+  <%= form.text_field :species, id: :fish_species, class: 'form-control', placeholder: 'Mutton Snapper, Largemouth Bass, etc.', data: { autocomplete_source: species_fish_index_path } %>
+</div>
+
+<div class="form-group">
+  <%= form.label :length %>
+  <%= form.text_field :length, id: :fish_length, class: 'form-control', placeholder: 'Length (in inches)' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :weight %>
+  <%= form.text_field :weight, id: :fish_weight, class: 'form-control', placeholder: 'Weight (in ounces)' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :location %>
+  <%= form.text_field :location, id: :fish_location, class: 'form-control', placeholder: 'James River, Rudee Inlet, etc.', data: { autocomplete_source: locations_fish_index_path } %>
+</div>
+
+<div class="form-group">
+  <%= form.label :water_type %>
+  <%= form.collection_select :water_type, %w(freshwater saltwater), :to_s, :to_s, {}, {class: 'form-control', id: :fish_water_type} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :catch_date %>
+  <%= form.date_select :catch_date, {}, {id: :fish_catch_date} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :user_comment, 'Comment' %>
+  <%= form.text_area :user_comment, id: :fish_user_comment, class: 'form-control' %>
+</div>
+
+<div class="custom-file">
+  <%= form.file_field :images, id: :fish_images, multiple: true, class: 'custom-file-input' %>
+  <label class="custom-file-label" for="fish_images">Choose Images (Up to 3)</label>
+  <%= form.hidden_field :images_cache %>
+</div>
+<div>
+  <label>
+    <%= form.check_box :remove_images %>
+    Remove images
+  </label>
+</div>
+<%= form.hidden_field :user_id, value: current_user.id %>
+<br/>
+<br/>
+<div class="actions">
+  <%= form.submit class: 'btn btn-primary' %>
+</div>
+<% end %>

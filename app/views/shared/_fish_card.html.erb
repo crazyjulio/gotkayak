@@ -1,0 +1,55 @@
+<div class="card fish-card <%= fish.disputed_by ? 'border-danger' : '' %>">
+  <% if fish.disputed_by? %>
+    <div class="card-header text-danger">
+      <p>
+        This fish has been disputed by
+        <strong>
+          <%= disputed_by(fish.disputed_by) %>
+        </strong>
+        Resolve the dispute for the fish to be counted.
+      </p>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <% if fish.images %>
+          <%= render partial: 'shared/fish_image_carousel', locals: {images: fish.images} %>
+        <% end %>
+        <br/>
+        <p class="card-text"><%= fish.user_comment %></p>
+      </div>
+      <div class="col-md-4">
+        <img class="img-fluid profile-image" src='<%= fish.user_image || '/assets/new/skunk.jpg' %>'/>
+        <h5 class="card-title"><%= fish.species %>
+          <br/>
+          <small class="text-muted">by
+            <%= link_to fish.user_name, other_user_profile_path(fish.user_to_param) %></small>
+        </h5>
+        <p class="card-text">
+          <i class="fa fa-arrows-h"></i>
+          <%= fish.display_length if fish.length? %>
+          <br/>
+          <i class="fa fa-balance-scale"></i>
+          <%= fish.display_weight if fish.weight? %>
+          <br/>
+          <i class="fa fa-map-marker"></i>
+          <%= fish.location %>
+          <br/>
+          <i class="fa fa-calendar"></i>
+          <%= fish.catch_date.strftime("%-m/%-d/%y") %>
+        </p>
+        <% unless preview %>
+          <%= render partial: 'shared/fish_card_actions', locals: {fish: fish} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% unless preview %>
+  <% if fish.comments %>
+    <%= render partial: 'shared/fish_comments', locals: {fish: fish} %>
+    <div class="clearfix"></div>
+  <% end %>
+<% end %>

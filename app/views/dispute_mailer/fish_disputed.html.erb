@@ -1,0 +1,12 @@
+<h1>Fish disputed!</h1>
+<br/>
+<p>Hey
+  <%= "#{@user.name}, your #{@fish.species} caught on #{@fish.catch_date} has been disputed by #{@disputer}" %>
+</p>
+<p>
+  <%= "#{@disputer} had this to say: #{@comment}" %>
+</p>
+<p>
+  You can resolve the issue, or engage in spirited dialog
+  <%= link_to 'here', @url %>
+</p>
