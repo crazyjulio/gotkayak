@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   devise_for :dadmins, ActiveAdmin::Devise.config
 
-  ActiveAdmin.routes(self)
   get 'admin', to: 'admin/dadmins#index'
+  ActiveAdmin.routes(self)
 
   get 'competition/:year', to: 'competitions#show'
   get 'competition/:year/disputes', to: 'competitions#disputes', as: 'disputes'
