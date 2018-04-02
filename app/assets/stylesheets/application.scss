@@ -131,6 +131,14 @@ h1, h2, h3 {
   background-position: 1% 35%;
 }
 
+.platform-pic{
+  max-height: 200px;
+}
+
+.why-malibu-image {
+  height: 100px;
+}
+
 .hidden-partner-nav{
   a{
     color: #fff;
@@ -152,6 +160,10 @@ h1, h2, h3 {
 
   .pad-bottom-sm{
     padding-bottom: 30px;
+  }
+
+  .why-malibu-image {
+    height: auto;
   }
 }
 
@@ -207,12 +219,14 @@ h1, h2, h3 {
 
 .navbar-brand {
   padding-left: 20px;
+  padding-right: 20px;
   height: auto;
   margin: 0;
 }
 
 .navbar-toggler {
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .navbar-nav {
@@ -247,4 +261,9 @@ h1, h2, h3 {
 .navbar-nav a:hover, .navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
   background: $section-background !important;
   color: #fff !important;
+}
+
+.nav-item{
+  min-width: 100px;
+  text-align: center;
 }

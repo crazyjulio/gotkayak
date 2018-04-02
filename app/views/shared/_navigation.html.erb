@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="/"><%= image_tag('new/odk_new.png') %></a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <a class="navbar-brand" href="/"><%= image_tag('new/odk_new.png') %></a>
   <div id="navbarSupportedContent" class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto"></ul>
     <ul class="navbar-nav navbar-right">
+      <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+        <%= link_to "Home<span><br /></span>".html_safe, root_path, { class: "nav-link" } %>
+      </li>
       <li class="nav-item <%= 'active' if current_page?(choosing_a_kayak_path) %>">
         <%= link_to "Choosing A Kayak<span>Buying the Best</span>".html_safe, choosing_a_kayak_path, { class: "nav-link" } %>
       </li>
