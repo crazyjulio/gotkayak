@@ -11,23 +11,11 @@ Things to do for V1.1 and beyond:
 be a sinking kayak (maybe not the best representation of the product). 404 can be a kayak on open
 water with noone in it, with link back to home page.
 
-4. Get better images for front page.
-
-5. Maybe find a place on the home page to say things like "Malibu Boats will last
-  longer and are higher quality than the box stores, etc., in addition to the fit"
-
-6. HTTPClient gem not behaving for me. If I really care about nearest_water_gauge
+4. HTTPClient gem not behaving for me. If I really care about nearest_water_gauge
   info and getting real time stats, then fix this.
 
-7. I have some mixed content issues I need to sort for Font Awesome. This is not the case in
+5. I have some mixed content issues I need to sort for Font Awesome. This is not the case in
   staging. Maybe because staging is https. Production is http though, so I need to check it out in production.
-
-8. See if I can justify the nav, similar to this:
-    https://getbootstrap.com/docs/3.3/components/#btn-groups-justified
-
-9. Add a home button to the nav.
-
-10. Relocate map to be over pony pasture instead of Huguenot Woods
 
 
 Fishing competition:
