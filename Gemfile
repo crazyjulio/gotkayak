@@ -40,6 +40,8 @@ gem 'measured-rails'
 gem 'kaminari'
 gem 'friendly_id'
 
+gem 'one_signal'
+
 group :development, :test do
   gem 'pry-rails'
 end

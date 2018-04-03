@@ -39,5 +39,7 @@ Rails.application.routes.draw do
   post 'comment', to: 'fish#comment'
   post 'edit_comment', to: 'fish#edit_comment'
 
+  post 'test_notification', to: 'competitions#notification_test'
+
   root to: 'static#index'
 end

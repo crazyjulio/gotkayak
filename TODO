@@ -15,7 +15,7 @@ water with noone in it, with link back to home page.
   info and getting real time stats, then fix this.
 
 5. I have some mixed content issues I need to sort for Font Awesome. This is not the case in
-  staging. Maybe because staging is https. Production is http though, so I need to check it out in production.
+  staging, because staging is https. Production is http though, and is having issues.
 
 
 Fishing competition:
