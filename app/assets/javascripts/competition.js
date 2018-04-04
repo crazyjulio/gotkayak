@@ -5,7 +5,7 @@
 //= require bootstrap
 //= require turbolinks
 
-$(document).on('turbolinks:load', function() {
+$(document).on('ready turbolinks:load', function() {
   var OneSignal = window.OneSignal || [];
   if (OneSignal.initialized !== true) {
     OneSignal.push(function() {
