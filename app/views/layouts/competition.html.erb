@@ -15,12 +15,29 @@
     <%= stylesheet_link_tag 'competition', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'competition', 'data-turbolinks-track': 'reload' %>
     <!-- <link rel="manifest" href="/manifest.json"/> -->
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="" data-turbolinks-eval="always"></script>
+    <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script> -->
     <script>
       $(document).on('turbolinks:load', function () {
-        var OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-          OneSignal.init({appId: "<%= ENV['GK_ONESIGNAL_APP_ID'] %>"});
+        function injectScript(src) {
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = src;
+            script.addEventListener('load', resolve);
+            script.addEventListener('error', () => reject('Error loading script.'));
+            script.addEventListener('abort', () => reject('Script loading aborted.'));
+            document.head.appendChild(script);
+          });
+        }
+
+        injectScript('https://cdn.onesignal.com/sdks/OneSignalSDK.js').then(() => {
+          console.log('Script loaded!');
+          var OneSignal = window.OneSignal || [];
+          OneSignal.push(function () {
+            OneSignal.init({appId: "<%= ENV['GK_ONESIGNAL_APP_ID'] %>"});
+          });
+        }).catch(error => {
+          console.log(error);
         });
       });
     </script>
