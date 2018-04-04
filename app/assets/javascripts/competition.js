@@ -46,4 +46,70 @@ $(document).on('turbolinks:load', function() {
       $('#original_comment').val(JSON.stringify(comment));
     }
   });
+
+  $("#fish-notification-frequency").change(function() {
+    var val = $(this).val();
+    try {
+      // Write the value to a cookie for retrieval on page load.
+      setCookie('fish-notification-frequency', val, 1000);
+      OneSignal.sendTag('fish_frequency', val);
+      element = document.getElementById('fish-notification-update');
+      element.innerHTML = '<p class="text-success">Successfully Set To ' + val.substr(0, 1).toUpperCase() + val.substr(1); + '</p>';
+    } catch (error) {
+      element = document.getElementById('fish-notification-update');
+      element.innerHTML = '<p class="text-danger">Was NOT Updated</p>';
+      console.error(error);
+    }
+  });
+
+  $("#comment-notification-frequency").change(function() {
+    var val = $(this).val();
+    try {
+      // Write the value to a cookie for retrieval on page load.
+      setCookie('comment-notification-frequency', val, 1000);
+      OneSignal.sendTag('comment_frequency', val);
+      element = document.getElementById('comment-notification-update');
+      element.innerHTML = '<p class="text-success">Successfully Set To ' + val.substr(0, 1).toUpperCase() + val.substr(1); + '</p>';
+    } catch (error) {
+      element = document.getElementById('comment-notification-update');
+      element.innerHTML = '<p class="text-danger">Was NOT Updated</p>';
+      console.error(error);
+    }
+  });
+
+  $("#fish-notification-frequency").val(getCookie('fish-notification-frequency'));
+  $("#comment-notification-frequency").val(getCookie('comment-notification-frequency'));
+
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ')
+        c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0)
+        return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  if ($('#notification-frequency-form').length) {
+    OneSignal.push(function() {
+      OneSignal.getUserId().then(function(userId) {
+        if (typeof userId != 'undefined') {
+          $('#notification-frequency-form').show();
+        }
+      });
+    });
+  }
 })
