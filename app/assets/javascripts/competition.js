@@ -7,7 +7,7 @@
 
 $(document).on('turbolinks:load', function() {
   var OneSignal = window.OneSignal || [];
-  if (OneSignal.initialize !== true) {
+  if (OneSignal.initialized !== true) {
     OneSignal.push(function() {
       OneSignal.init({
         appId: "c1c1ca78-8cb0-469c-b7ee-b62367e7553b"
