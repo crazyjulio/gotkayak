@@ -6,6 +6,13 @@
 //= require turbolinks
 
 $(document).on('turbolinks:load', function() {
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "c1c1ca78-8cb0-469c-b7ee-b62367e7553b"
+    });
+  });
+
   $("input[type=file]").change(function() {
     var fieldVal = $(this).val();
     if (fieldVal != undefined || fieldVal != "") {
