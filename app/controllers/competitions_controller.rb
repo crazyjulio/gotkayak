@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[notification_test]
   before_action :setup_show_action, only: %i[show disputes]
   layout 'competition'
 
@@ -12,6 +12,11 @@ class CompetitionsController < ApplicationController
     @disputes = @competition.fish.disputed
   end
 
+  def current_year
+    year = Date.today.year
+    redirect_to "/competition/#{year}"
+  end
+
   def disputes
     @fish = @competition.fish.disputed.most_recent.page(params[:page]).per(10)
     if @fish.present?
@@ -19,6 +24,29 @@ class CompetitionsController < ApplicationController
     else
       redirect_to "/competition/#{@competition.year}", notice: 'There are currently no disputed fish'
     end
+  end
+
+  def notification_test
+    #     app_id = ENV['GK_ONESIGNAL_APP_ID']
+    #
+    #     params = {
+    #       app_id: app_id,
+    #       contents: {
+    #         en: 'Just a test'
+    #       },
+    #       ios_badgeType: 'None',
+    #       ios_badgeCount: 1,
+    #       included_segments: ['All']
+    #     }
+    #     begin
+    #       response = OneSignal::Notification.create(params: params)
+    #       notification_id = JSON.parse(response.body)['id']
+    #     rescue OneSignal::OneSignalError => e
+    #       puts '--- OneSignalError  :'
+    #       puts "-- message : #{e.message}"
+    #       puts "-- status : #{e.http_status}"
+    #       puts "-- body : #{e.http_body}"
+    #     end
   end
 
   private

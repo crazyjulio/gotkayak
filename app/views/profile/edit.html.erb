@@ -1,8 +1,8 @@
 <div class="container">
   <section class="content">
+    <h2>Edit Profile</h2>
     <div class="row">
       <div class="col-md-6">
-        <h2>Edit Profile</h2>
         <% if @user.errors.any? %>
           <div id="error_explanation" class="alert alert-danger" role="alert">
             <h2><%= pluralize(@user.errors.count, "error") %>
@@ -47,6 +47,36 @@
           <%= f.submit "Update", class: 'btn btn-primary' %>
         </div>
       <% end %>
+    </div>
+    <div class="col-md-6">
+      <form id="notification-frequency-form">
+        <div class="form-group">
+          <label for="fish-notification-frequency" style="display: inline-block;">Select Fish Notification Frequency</label>
+          <div id="fish-notification-update" style="display: inline-block;"></div>
+          <select class="form-control" id="fish-notification-frequency">
+            <option disabled="disabled" selected="selected" value="value">
+              -- select an option --
+            </option>
+            <option value="all">Notify For Every Fish</option>
+            <option value="daily">Daily Summary</option>
+            <option value="weekly">Weekly Summary</option>
+            <option value="none">No Notifications</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment-notification-frequency" style="display: inline-block;">Select Comment Notification Frequency</label>
+          <div id="comment-notification-update" style="display: inline-block;"></div>
+          <select class="form-control" id="comment-notification-frequency">
+            <option disabled="disabled" selected="selected" value="value">
+              -- select an option --
+            </option>
+            <option value="all">Notify For Every Comment</option>
+            <option value="daily">Daily Summary</option>
+            <option value="weekly">Weekly Summary</option>
+            <option value="none">No Notifications</option>
+          </select>
+        </div>
+      </form>
     </div>
   </div>
 </section>

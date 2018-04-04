@@ -37,4 +37,12 @@ class Fish < ApplicationRecord
   def display_length
     "#{Measured::Length.new(length, 'in').convert_to('ft').format('%.2<value>f')} feet" if length
   end
+
+  def self.recent_comments_for_notification(days_in_the_past:)
+    Fish.all.select(&:comments).collect(&:comments).flatten.select { |comment| comment['comment_time'] >= (Time.now - days_in_the_past.days) }.length
+  end
+
+  def self.recent_fish_for_notification(days_in_the_past:)
+    Fish.where("created_at > '#{(Time.now - days_in_the_past.days).to_s(:db)}'").count
+  end
 end

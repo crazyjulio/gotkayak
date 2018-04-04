@@ -4,8 +4,11 @@ class FishController < InheritedResources::Base
   before_action :authorize_user_to_edit, only: %i[edit update]
   before_action :authorize_user_to_dispute, only: %i[dispute]
   before_action :authorize_user_to_resolve_dispute, only: %i[resolve_dispute]
+  after_action :notify_users_about_fish, only: %i[create]
 
   layout 'competition'
+
+  include Notification
 
   def species
     fish = Fish.order(:species).where('species ilike ?', "%#{params[:term]}%")
@@ -47,6 +50,10 @@ class FishController < InheritedResources::Base
 
   private
 
+  def notify_users_about_fish
+    send_notification(segments: ['All Fish'], message: "#{current_user.name} caught a #{@fish.species}!")
+  end
+
   def save_fish_with_dispute_comments(notice:, alert:)
     path = from_disputes? ? dispute_path : current_competition_path
     if @fish.save
@@ -72,8 +79,10 @@ class FishController < InheritedResources::Base
   end
 
   def add_comment(comment_type)
+    comment_time = Time.now
     @fish.comments = [] if @fish.comments.nil?
-    @fish.comments << { type: comment_type, comment: params[:comment], user_id: current_user.id, comment_time: Time.now }
+    @fish.comments << { type: comment_type, comment: params[:comment], user_id: current_user.id, comment_time: comment_time }
+    send_notification(segments: ['All Comments'], message: "#{current_user.name} commented on #{@fish.user_name}'s #{@fish.species} at #{comment_time.strftime('%l:%M')}")
   end
 
   def current_year

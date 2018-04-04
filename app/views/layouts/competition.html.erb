@@ -14,6 +14,14 @@
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
     <%= stylesheet_link_tag 'competition', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'competition', 'data-turbolinks-track': 'reload' %>
+    <link rel="manifest" href="/manifest.json"/>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function () {
+        OneSignal.init({appId: "<%= ENV['GK_ONESIGNAL_APP_ID'] %>"});
+      });
+    </script>
     <%= csrf_meta_tags %>
     <%= yield :head %>
   </head>
