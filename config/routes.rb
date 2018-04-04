@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   get 'competition/:year', to: 'competitions#show'
+  get 'current_competition', to: 'competitions#current_year'
   get 'competition/:year/disputes', to: 'competitions#disputes', as: 'disputes'
   get 'clearance', to: 'clearance_items#index'
   get 'faqs', to: 'questions#index'

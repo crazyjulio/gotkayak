@@ -12,6 +12,11 @@ class CompetitionsController < ApplicationController
     @disputes = @competition.fish.disputed
   end
 
+  def current_year
+    year = Date.today.year
+    redirect_to "/competition/#{year}"
+  end
+
   def disputes
     @fish = @competition.fish.disputed.most_recent.page(params[:page]).per(10)
     if @fish.present?
@@ -22,26 +27,26 @@ class CompetitionsController < ApplicationController
   end
 
   def notification_test
-    # binding.pry
-    app_id = ENV['GK_ONESIGNAL_APP_ID']
-    params = {
-      app_id: app_id,
-      contents: {
-        en: 'hello player'
-      },
-      ios_badgeType: 'None',
-      ios_badgeCount: 1 # ,
-      # include_player_ids: []
-    }
-    begin
-      response = OneSignal::Notification.create(params: params)
-      notification_id = JSON.parse(response.body)['id']
-    rescue OneSignal::OneSignalError => e
-      puts '--- OneSignalError  :'
-      puts "-- message : #{e.message}"
-      puts "-- status : #{e.http_status}"
-      puts "-- body : #{e.http_body}"
-    end
+    #     app_id = ENV['GK_ONESIGNAL_APP_ID']
+    #
+    #     params = {
+    #       app_id: app_id,
+    #       contents: {
+    #         en: 'Just a test'
+    #       },
+    #       ios_badgeType: 'None',
+    #       ios_badgeCount: 1,
+    #       included_segments: ['All']
+    #     }
+    #     begin
+    #       response = OneSignal::Notification.create(params: params)
+    #       notification_id = JSON.parse(response.body)['id']
+    #     rescue OneSignal::OneSignalError => e
+    #       puts '--- OneSignalError  :'
+    #       puts "-- message : #{e.message}"
+    #       puts "-- status : #{e.http_status}"
+    #       puts "-- body : #{e.http_body}"
+    #     end
   end
 
   private

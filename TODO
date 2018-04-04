@@ -14,17 +14,12 @@ water with noone in it, with link back to home page.
 4. HTTPClient gem not behaving for me. If I really care about nearest_water_gauge
   info and getting real time stats, then fix this.
 
-5. I have some mixed content issues I need to sort for Font Awesome. This is not the case in
-  staging, because staging is https. Production is http though, and is having issues.
-
+5. I have some mixed content issues I need to sort for Font Awesome.
 
 Fishing competition:
   1. Give users a chance to look at previous years.
   2. Would be a very nice feature to be able to export all a users fish images.
   3. Set up a feature via action cable to update the main page when someone adds a new fish.
     Or when someone adds a comment to a fish, or both.
-  4. Set up web push notifications for fishing competitors to get notifications on their phone:
-    https://www.quora.com/Is-there-any-way-for-a-mobile-website-not-app-to-push-alerts-to-the-smartphone-like-an-app
-    https://onesignal.com/
-  5. Should I ever switch to mongo, use this to store data for fishing competition:
+  4. Should I ever switch to mongo, use this to store data for fishing competition:
     https://mlab.com/plans/pricing/#plan-type=sandbox
