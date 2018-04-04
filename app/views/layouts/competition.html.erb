@@ -18,12 +18,12 @@
     <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script> -->
     <!-- <script> var OneSignal = window.OneSignal || []; OneSignal.push(function () { OneSignal.init({appId: "c1c1ca78-8cb0-469c-b7ee-b62367e7553b"}); }); </script> -->
     <script>
-      $(document).on('ready page:load', function () {
+      document.addEventListener("turbolinks:load", function () {
         var OneSignal = window.OneSignal || [];
         OneSignal.push(function () {
           OneSignal.init({appId: "c1c1ca78-8cb0-469c-b7ee-b62367e7553b"});
         });
-      });
+      })
     </script>
     <%= csrf_meta_tags %>
     <%= yield :head %>
