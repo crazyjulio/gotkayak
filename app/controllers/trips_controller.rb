@@ -3,8 +3,9 @@ class TripsController < ApplicationController
   # GET /trips/1.json
   def show
     @waterbody = Waterbody.find_by_name(params[:name])
+    raise ActionController::RoutingError, 'Not Found' if @waterbody.nil?
     @trip = Trip.find_by_name_and_waterbody_id(params[:trip_name], @waterbody.id)
-    raise ActionController::RoutingError, 'Not Found' if @waterbody.nil? || @trip.nil?
+    raise ActionController::RoutingError, 'Not Found' if @trip.nil?
     #     if @trip && !@trip.nearest_water_gauge.empty?
     #       http = HTTPClient.new
     #       begin
