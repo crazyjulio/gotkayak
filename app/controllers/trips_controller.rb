@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   def show
     @waterbody = Waterbody.find_by_name(params[:name])
     @trip = Trip.find_by_name_and_waterbody_id(params[:trip_name], @waterbody.id)
+    raise ActionController::RoutingError, 'Not Found' if @waterbody.nil? || @trip.nil?
     #     if @trip && !@trip.nearest_water_gauge.empty?
     #       http = HTTPClient.new
     #       begin
