@@ -9,6 +9,7 @@ class WaterbodiesController < ApplicationController
   # GET /waterbodies/1.xml
   def show
     @waterbody = Waterbody.find_by_name(params[:name])
+    raise ActionController::RoutingError, 'Not Found' if @waterbody.nil?
     @trips = @waterbody.trips.order('start_date asc')
   end
 end
