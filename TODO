@@ -31,5 +31,3 @@ Fishing competition:
   4. Should I ever switch to mongo, use this to store data for fishing competition:
     https://mlab.com/plans/pricing/#plan-type=sandbox
   5. Maybe add a monthly task that updates everyone on the current status of the competition
-  6. I might be able to put the OneSignal code into the body of the layout file to get it to
-    load every time. Or maybe into the body of the index page and the profile/edit page.
