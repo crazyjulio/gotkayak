@@ -168,6 +168,10 @@ h1, h2, h3 {
 }
 
 @media(max-width:992px) {
+  .nav-item{
+    text-align: left !important;
+  }
+
   .footer {
     height: 80px;
   }
