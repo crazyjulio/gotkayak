@@ -16,6 +16,13 @@ water with noone in it, with link back to home page.
 
 5. I have some mixed content issues I need to sort for Font Awesome.
 
+6. Navbar Collapse links should be left justified.
+
+7. Should maybe add a form to capture user emails so Dad can notify those people when
+  there are sales on kayaks, or new kayaks have come in. Gotta be careful about how
+  I do it though, because I have limited rows in my database. Maybe use a service like Wufoo
+
+
 Fishing competition:
   1. Give users a chance to look at previous years.
   2. Would be a very nice feature to be able to export all a users fish images.
@@ -23,4 +30,6 @@ Fishing competition:
     Or when someone adds a comment to a fish, or both.
   4. Should I ever switch to mongo, use this to store data for fishing competition:
     https://mlab.com/plans/pricing/#plan-type=sandbox
-  5. Maybe add a monthly task that updates everyone on the current status of the competition 
+  5. Maybe add a monthly task that updates everyone on the current status of the competition
+  6. I might be able to put the OneSignal code into the body of the layout file to get it to
+    load every time. Or maybe into the body of the index page and the profile/edit page.
