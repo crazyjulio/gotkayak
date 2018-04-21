@@ -16,9 +16,7 @@ water with noone in it, with link back to home page.
 
 5. I have some mixed content issues I need to sort for Font Awesome.
 
-6. Navbar Collapse links should be left justified.
-
-7. Should maybe add a form to capture user emails so Dad can notify those people when
+6. Should maybe add a form to capture user emails so Dad can notify those people when
   there are sales on kayaks, or new kayaks have come in. Gotta be careful about how
   I do it though, because I have limited rows in my database. Maybe use a service like Wufoo
 
