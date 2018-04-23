@@ -172,6 +172,12 @@ h1, h2, h3 {
   body {
     padding-bottom: 0 !important;
   }
+  .navbar {
+    height: 70px !important;
+  }
+  .navbar-brand>img {
+    height: 60px;
+  }
 }
 
 @media(max-width:992px) {
