@@ -34,5 +34,9 @@
   <strong>Profile Image:
   </strong>
   <br/>
-  <img class="img-fluid profile-image" src='<%= user.image || '/assets/new/skunk.jpg' %>'/>
+  <% if user.image.present? %>
+    <%= image_tag(user.image, class: 'img-fluid profile-image') %>
+  <% else %>
+    <%= image_tag('new/skunk.jpg', class: 'img-fluid profile-image') %>
+  <% end %>
 </div>

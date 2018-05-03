@@ -20,7 +20,11 @@
         <p class="card-text"><%= fish.user_comment %></p>
       </div>
       <div class="col-md-4">
-        <img class="img-fluid profile-image" src='<%= fish.user_image || '/assets/new/skunk.jpg' %>'/>
+        <% if fish.user_image.present? %>
+          <%= image_tag(fish.user_image, class: 'img-fluid profile-image') %>
+        <% else %>
+          <%= image_tag('new/skunk.jpg', class: 'img-fluid profile-image') %>
+        <% end %>
         <h5 class="card-title"><%= fish.species %>
           <br/>
           <small class="text-muted">by
