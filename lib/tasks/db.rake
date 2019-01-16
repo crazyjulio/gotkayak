@@ -3,7 +3,7 @@ namespace :db do
   task create_users: :environment do
     User.create!(email: 'lylesjt@gmail.com', password: 'jason', password_confirmation: 'jason', name: 'Jason Lyles')
     User.create!(email: 'lylesbk@yahoo.com', password: 'brian', password_confirmation: 'brian', name: 'Brian Lyles')
-    User.create!(email: 'tom@gotkayak.com', password: 'tom', password_confirmation: 'tom', name: 'Tom Lyles')
+    User.create!(email: 'tomlyles@gmail.com', password: 'tom', password_confirmation: 'tom', name: 'Tom Lyles')
     User.create!(email: 'ncwplanner@gmail.com', password: 'neil', password_confirmation: 'neil', name: 'Neil Wert')
     User.create!(email: 'everett.simpson@gmail.com', password: 'everett', password_confirmation: 'everett', name: 'Everett Simpson')
     User.create!(email: 'kingpn626@gmail.com', password: 'paul', password_confirmation: 'paul', name: 'Paul King')
